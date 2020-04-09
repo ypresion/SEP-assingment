@@ -7,7 +7,7 @@ if ($errors) {
     echo show_errors($errors);
 }
 else {
-    header("Location: http://unn-w18011022.newnumyspace.co.uk/SEP-assingment/public/index.html");
+    header("Location: http://unn-w18011022.newnumyspace.co.uk/SEP-assingment/public/Tom-Index.php");
 }
 
 

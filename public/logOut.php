@@ -6,5 +6,4 @@ $_SESSION = array();
 
 session_destroy();
 
-echo "<p>You have logged out!</p> \n";
-echo "<a href = loginForm.html>Click to login</a>";
+header("Location: http://unn-w18011022.newnumyspace.co.uk/SEP-assingment/public/Tom-Index.php");
