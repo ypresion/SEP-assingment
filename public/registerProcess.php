@@ -18,7 +18,7 @@ else {
     $stmt->execute(array(':firstname' =>  $input['first'], ':surname' => $input['last'], ':username' => $input['username'],':passwordHash' => $input['password']));
 
     echo "<p> Registered! </p>";
-    echo "<a href = loginForm.html>Click here to go to login page</a>";
+    echo "<a href = login.php>Click here to go to login page</a>";
 
 }
 
