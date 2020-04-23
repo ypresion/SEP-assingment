@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 <?php
 ini_set("session.save_path", "/home/unn_w18011022/sessionData");
 session_start();
