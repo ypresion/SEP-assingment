@@ -1,3 +1,4 @@
+
 <?php
 ini_set("session.save_path", "/home/unn_w18011022/sessionData");
 session_start();
@@ -316,13 +317,13 @@ require_once("functions.php");
           </div>
 
           <!-- Footer -->
-    <div class="flex flex-col flex-wrap  ">
-        <div class="flex justify-around bg-gray-400">
-            <div><a href="#">Home</a></div>
-            <div><a href="#">About</a></div>
-            <div><a href="#">Products</a></div>
-            <div><a href="#">Contact</a></div>
+
+        <div class="flex flex-col flex-wrap">
+            <div class="flex justify-around bg-gray-200">
+                <div><a href="index.php">Home</a></div>
+                <div><a href="#">About</a></div>
+                <div><a href="product.php">Products</a></div>
+                <div><a href="#">Contact</a></div>
+            </div>
         </div>
-    </div>
 </body>
-</html>

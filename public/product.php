@@ -1,3 +1,4 @@
+
 <?php
 ini_set("session.save_path", "/home/unn_w18011022/sessionData");
 session_start();
@@ -61,19 +62,31 @@ exit;
         <!-- End of about products -->
     <!-- Hot Selling Products -->
     <div class="flex flex-wrap justify-around">
-        <div class="flex flex-col my-2 p-2 h-auto max-w-sm md:w-1/2 md:max-w-md lg:w-1/3 lg:max-w-lg  xl:max-w-xl  ">
-            <div class="flex flex-col md:items-center max-w-full hover:border-gray-600 border-2 p-6 hover:bg-gray-700 ">
-                <div class="h-auto overflow-hidden ">
-                    <a href="#"><img src="assets/images/mx-master-3.png" alt=""></a>
-                </div>
-            </div>
-            <?php
+        <?php
 
             while($rowObj = $queryResult->fetchObject()) {
-                echo "<img src=\"ProductPics/$rowObj->prodImage\" height=\"250\" width=\"250\"/>
-        <span class=\'title\'> <h2>{$rowObj->prodName}</h2></span>
-        <span class=\'price\'> <h3>£{$rowObj->prodPrice}</h3></span>        
-</div>";
+                echo "<div class=\"flex flex-col my-2 p-2 h-auto max-w-sm md:w-1/2 md:max-w-md lg:w-1/3 lg:max-w-lg  xl:max-w-xl  \">
+            <div class=\"flex flex-col md:items-center max-w-full hover:border-gray-600 border-2 p-6 hover:bg-gray-700 \">
+                <div class=\"h-auto overflow-hidden \">
+                    <a href=\"#\"><img src=\"ProductPics/$rowObj->prodImage\" alt=\"\"></a>
+                </div>
+            </div>
+            <div class=\"flex pl-5 \">
+	            <div class=\"flex flex-col \">
+	                <a href=\"#\">
+	                    <span class=\"font-bold text-xl\" >
+                            {$rowObj->prodName}
+                        </span>
+                    </a>
+                        <span>
+                        {$rowObj->catDesc}
+                        </span>
+                        <span>
+                       £{$rowObj->prodPrice}
+                        </span>
+                    </div>
+	           </div>
+	</div>";
 
             }
             ?>
@@ -104,13 +117,12 @@ exit;
     </div>
     <!-- End of Newsletter -->
           <!-- Footer -->
-    <div class="flex flex-col flex-wrap  ">
-        <div class="flex justify-around ">
-            <div><a href="#">Home</a></div>
+    <div class="flex flex-col flex-wrap">
+        <div class="flex justify-around bg-gray-200">
+            <div><a href="index.php">Home</a></div>
             <div><a href="#">About</a></div>
-            <div><a href="#">Products</a></div>
+            <div><a href="product.php">Products</a></div>
             <div><a href="#">Contact</a></div>
         </div>
     </div>
 </body>
-</html>

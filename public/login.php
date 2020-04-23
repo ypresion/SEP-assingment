@@ -76,11 +76,12 @@ require_once("functions.php");
 								</label>
 							</div>
 							<div class="mb-6 text-center">
-								<input
+								<button
 									class="w-full px-4 py-2 font-bold text-white bg-blue-500 rounded-full hover:bg-blue-700 focus:outline-none focus:shadow-outline"
 									type="submit"
 								>
-								</input>
+                                    Log in!
+								</button>
 							</div>
 							<hr class="mb-6 border-t" />
 							<div class="text-center">
@@ -105,13 +106,14 @@ require_once("functions.php");
 			</div>
         </div>
                   <!-- Footer -->
-    <div class="flex flex-col flex-wrap  ">
-        <div class="flex justify-around bg-gray-200">
-            <div><a href="#">Home</a></div>
-            <div><a href="#">About</a></div>
-            <div><a href="#">Products</a></div>
-            <div><a href="#">Contact</a></div>
+        <div class="flex flex-col flex-wrap">
+            <div class="flex justify-around bg-gray-200">
+                <div><a href="index.php">Home</a></div>
+                <div><a href="#">About</a></div>
+                <div><a href="product.php">Products</a></div>
+                <div><a href="#">Contact</a></div>
+            </div>
         </div>
-    </div>
 </body>
+
 </html>

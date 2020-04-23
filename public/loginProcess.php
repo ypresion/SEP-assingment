@@ -7,7 +7,7 @@ if ($errors) {
     echo show_errors($errors);
 }
 else {
-    header("Location: http://unn-w18011022.newnumyspace.co.uk/SEP-assingment/public/Index.php");
+    header("Location: http://unn-w18011022.newnumyspace.co.uk/SEP-assingment/public/index.php");
 }
 
 
@@ -84,5 +84,4 @@ function show_errors ($errors){
     }
     return $output ;
 }
-
 
