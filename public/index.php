@@ -1,6 +1,6 @@
 
 <?php
-ini_set("session.save_path", "/home/unn_w18011022/sessionData");
+ini_set("session.save_path", "");
 session_start();
 require_once("functions.php");
 ?>
@@ -92,11 +92,11 @@ require_once("functions.php");
             </g>
             </svg>
         </div>
-        <div class="block lg:hidden">
+        <!-- <div class="block lg:hidden">
           <button class="flex items-center px-3 py-2 border rounded text-gray-900 border-gray-800 hover:text-white hover:border-white">
             <svg class="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Menu</title><path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"/></svg>
           </button>
-        </div>
+        </div> -->
       </div>
     </nav>
     

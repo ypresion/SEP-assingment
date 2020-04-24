@@ -132,6 +132,7 @@
                 <div><a href="#">Home</a></div>
             </div>
         </div>
+        <script src="../../public/scripts/login.js"></script>
     </body>
     </html>';
     return $this->footer;
