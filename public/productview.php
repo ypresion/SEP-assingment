@@ -18,11 +18,11 @@ $q1 = $dbConn->query($sql);
 $q2= $dbConn->query($sql);
 
 if($q1 === false) {
-    echo "<p>Query failed: ".$dbConn->error."</p>\n</body>\n</html>";
+    echo "<p>Query 1 failed: ".$dbConn->error."</p>\n</body>\n</html>";
     exit;
 }
 if($q2 === false) {
-    echo "<p>Query failed: ".$dbConn->error."</p>\n</body>\n</html>";
+    echo "<p>Query 2 failed: ".$dbConn->error."</p>\n</body>\n</html>";
     exit;
 }
 
