@@ -1,9 +1,4 @@
 
-<?php
-ini_set("session.save_path", "");
-session_start();
-require_once("functions.php");
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -71,19 +66,10 @@ require_once("functions.php");
 <body>
     <!-- Navigation -->
     <nav class="flex items-center justify-between flex-wrap bg-gray-200 p-6 shadow-xl mb-1 ">
-        <?php
-       require_once "functions.php";
-       if(check_login()) {
-        echo "<div>
+        <div>
         <a href=\"logOut.php\" class=\"inline-block text-sm px-4 py-2 leading-none border rounded text-gray-900 border-gray-800 hover:border-transparent hover:text-teal-500 hover:bg-white mt-4 lg:mt-0\">Log Out</a>
-        </div>";
-        }
-        else{
-        echo"<div>
-        <a href=\"login.php\" class=\"inline-block text-sm px-4 py-2 leading-none border rounded text-gray-900 border-gray-800 hover:border-transparent hover:text-teal-500 hover:bg-white mt-4 lg:mt-0\">Login</a>
-    </div>";
-        }
-        ?>
+        </div>
+
         <div class="flex items-center flex-shrink-0 text-gray-900 mr-6">
           <svg class="fill-current h-auto w-40 mr-2 " id="svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="400" height="69.18873476250525" viewBox="0, 0, 400,69.18873476250525">
             <g id="svgg">
@@ -92,11 +78,11 @@ require_once("functions.php");
             </g>
             </svg>
         </div>
-        <!-- <div class="block lg:hidden">
+        <div class="block lg:hidden">
           <button class="flex items-center px-3 py-2 border rounded text-gray-900 border-gray-800 hover:text-white hover:border-white">
             <svg class="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Menu</title><path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"/></svg>
           </button>
-        </div> -->
+        </div>
       </div>
     </nav>
     
@@ -136,6 +122,7 @@ require_once("functions.php");
           <div>
           </div>
         </div>
+    </div>
       </nav>
     <!-- Nav End -->
 
