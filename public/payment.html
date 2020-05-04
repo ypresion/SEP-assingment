@@ -107,36 +107,56 @@
       </nav>
     <!-- End of Nav -->
     <!-- Basket -->
-    <section class="flex flex-col md:flex-row">
-        <table class="table-auto w-full text-center md:w-3/4">
-            <thead class="text-sm mb-4">
-              <tr>
-                <th class="px-4 py-2 md:w-32"></th>
-                <th class="px-4 py-2">Details</th>
-                <th class="px-4 py-2">Quantity</th>
-                <th class="px-4 py-2">Price</th>
-                <th class="px-4 py-2">Total</th>
-              </tr>
-            </thead>
-            <tbody class="text-xs md:text-lg">
-              <tr class=" ">
-                <td class="md:w-32"><img src="assets/images/mx-master-3.png" alt=""></td>
-                <td class="">Logitech Mx-Mouse</td>
-                <td class="">1</td>
-                <td class="">£35.99</td>
-                <td class="">£35.99</td>
-              </tr>
-              <tr class=" ">
-                <td class="md:w-32"><img src="assets/images/mx-master-3.png" alt=""></td>
-                <td class="">Logitech Mx-Mouse</td>
-                <td class="">1</td>
-                <td class="">£35.99</td>
-                <td class="">£35.99</td>
-              </tr>
-            </tbody>
-          </table>
+    <section class="w-full flex flex-col md:flex-row">
+            <form class="w-full  md:w-3/4 mt-6">
+                <div class="flex flex-wrap  mb-6">
+                  <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+                    <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">
+                      First Name
+                    </label>
+                    <input class="appearance-none block w-full bg-gray-200 text-gray-700 border  rounded py-3 px-4 mb-3 leading-tight  focus:bg-white" id="grid-first-name" type="text" placeholder="Jane">
+                  </div>
+                  <div class="w-full md:w-1/2 px-3">
+                    <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
+                      Last Name
+                    </label>
+                    <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-last-name" type="text" placeholder="Doe">
+                  </div>
+                </div>
+                <div class="flex flex-wrap  mb-2">
+                  <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+                    <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-city">
+                      Street Name
+                    </label>
+                    <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-city" type="text" placeholder="eg: Northumberland Street">
+                  </div>
+                  <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+                    <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-state">
+                      County
+                    </label>
+                    <div class="relative">
+                      <select class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-state">
+                        <option>Newcastle</option>
+                        <option>London</option>
+                        <option>Birmingham</option>
+                      </select>
+                      <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                        <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+                    <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-zip">
+                      Post Code
+                    </label>
+                    <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-zip" type="text" placeholder="eg: NE1 1AZ">
+                  </div>
+                </div>
+              </form>
 
-          <div class="flex flex-col w-full  md:w-1/4 ">
+        
+
+          <div class="flex flex-col w-full  md:w-1/4 mt-6">
             <span class="px-2 mb-2">Order Summary</span>
             <div class="flex flex-row justify-between px-2 mb-4">
                 <p>1 Item</p>
@@ -147,7 +167,7 @@
                 <p>£89.99</p>
             </div>
             <button class=" mx-2 bg-gray-300 hover:bg-gray-500 text-gray-700 font-semibold hover:text-white py-2 px-4 border border-gray-500 hover:border-transparent rounded">
-                <a href="payment.html">Checkout Securely</a>
+                <a href="#">Checkout Securely</a>
               </button>
     </section>
 
