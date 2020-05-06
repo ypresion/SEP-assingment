@@ -91,33 +91,34 @@ require_once("functions.php");
             </button>
         </div>
         <div class="w-full md:w-auto md:flex-grow md:flex md:items-center">
-            <ul class="flex flex-col mt-4 -mx-4 pt-4  md:flex-row md:items-center md:mx-0 md:mt-0 md:pt-0 md:mr-4 lg:mr-8 md:border-0">
-                <?php
-                require_once "functions.php";
-                if(check_login()) {
-                    echo "<li>
+            <div class="w-full md:w-auto md:flex-grow md:flex md:items-center">
+                <ul class="flex flex-col mt-4 -mx-4 pt-4  md:flex-row md:items-center md:mx-0 md:mt-0 md:pt-0 md:mr-4 lg:mr-8 md:border-0">
+                    <?php
+                    require_once "functions.php";
+                    if(check_login()) {
+                        echo "<li>
               <a class=\"block px-4 py-1 md:p-2 lg:px-4\" href=\"logOut.php\" title=\"Link\">LogOut</a>
               </li>";
-              }
-                else{
-                    echo"<li>
+                    }
+                    else{
+                        echo"<li>
               <a class=\"block px-4 py-1 md:p-2 lg:px-4\" href=\"login.php\" title=\"Link\">Login</a>
           </li>";
-              }
-                ?>
-            </ul>
-            <ul class="flex flex-col mt-4 -mx-4 md:flex-row md:items-center md:mx-0 md:ml-auto md:mt-0 md:pt-0 md:border-0">
-                <li>
-                    <a class="block px-4 py-1 md:p-2 lg:px-4" href="index.html" title="Link">Home</a>
-                </li>
-                <li>
-                    <a class="block px-4 py-1 md:p-2 lg:px-4 " href="product.html" title="Active Link">Products</a>
-                </li>
-                <li>
-                    <a class="block px-4 py-1 md:p-2 lg:px-4" href="basket.html" title="Link">Basket</a>
-                </li>
-            </ul>
-        </div>
+                    }
+                    ?>
+                </ul>
+                <ul class="flex flex-col mt-4 -mx-4 md:flex-row md:items-center md:mx-0 md:ml-auto md:mt-0 md:pt-0 md:border-0">
+                    <li>
+                        <a class="block px-4 py-1 md:p-2 lg:px-4" href="index.php" title="Link">Home</a>
+                    </li>
+                    <li>
+                        <a class="block px-4 py-1 md:p-2 lg:px-4 " href="product.php" title="Active Link">Products</a>
+                    </li>
+                    <li>
+                        <a class="block px-4 py-1 md:p-2 lg:px-4" href="basket.html" title="Link">Basket</a>
+                    </li>
+                </ul>
+            </div>
     </div>
 </nav>
 
