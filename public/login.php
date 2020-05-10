@@ -55,7 +55,7 @@ require_once("functions.php");
             </ul>
             <ul class="flex flex-col mt-4 -mx-4 pt-4  md:flex-row md:items-center md:mx-0 md:mt-0 md:pt-0 md:mr-4 lg:mr-8 md:border-0">
                 <li>
-                    <a class="block px-4 py-1 md:p-2 lg:px-4" href="registerForm.html" title="Link">REGISTER</a>
+                    <a class="block px-4 py-1 md:p-2 lg:px-4" href="registerForm.php" title="Link">REGISTER</a>
                 </li>
             </ul>
             <ul class="flex flex-col mt-4 -mx-4 md:flex-row md:items-center md:mx-0 md:ml-auto md:mt-0 md:pt-0 md:border-0">
