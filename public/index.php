@@ -3,6 +3,27 @@
 ini_set("session.save_path", "");
 session_start();
 require_once("functions.php");
+
+$dbConn = getConnection();
+
+
+$sql =  "select * FROM a_product  
+       LIMIT 3
+       INNER JOIN a_prodCat
+       ON a_prodCat.catID = a_product.catID
+       INNER JOIN a_stock
+       ON a_stock.sID = a_product.sID
+       ORDER BY sNum 
+       
+     ";
+
+$queryResult = $dbConn->query($sql);
+
+if($queryResult === false) {
+    echo "<p>Query failed: ".$dbConn->error."</p>\n</body>\n</html>";
+    exit;
+}
+
 ?>
 
 
@@ -223,74 +244,43 @@ require_once("functions.php");
     <div class="overflow-hidden h-2 my-2 text-xs flex rounded bg-gray-400">
     </div>
 </div>
-<!-- scroll bar -->
+<!-- limit to 3 query searches-->
 <div class="flex flex-wrap ">
-    <div class="flex flex-col my-2 p-2 h-auto max-w-md md:w-1/2 md:max-w-md lg:w-1/3 lg:max-w-lg xl:max-w-xl">
-        <div class="flex flex-col md:items-center max-w-full hover:border-gray-600 border border-gray-400 p-6 hover:bg-gray-800 ">
-            <div class="h-auto overflow-hidden ">
-                <a href="#"><img src="assets/images/mx-master-3.png" alt=""></a>
+
+
+    <?php
+
+    while($rowObj = $queryResult->fetchObject()) {
+        echo "<div class=\"flex flex-col my-2 p-2 h-auto max-w-sm md:w-1/2 md:max-w-md lg:w-1/3 lg:max-w-lg  xl:max-w-xl  \">
+            <div class=\"flex flex-col md:items-center max-w-full hover:border-gray-600 border-2 p-6 hover:bg-gray-700 \">
+                <div class=\"h-auto overflow-hidden \">
+                    <a href='productview.php?prodID={$rowObj->prodID}'><img src=\"ProductPics/$rowObj->prodImage\" alt=\"\"></a>
+                </div>
             </div>
-        </div>
-        <div class="flex pl-5 ">
-            <div class="flex flex-col  ">
-                <a href="#">
-                                <span class="font-bold text-xl" >
-                                    Logitech Mouse
-                                </span>
-                </a>
-                <span>
-                                Gaming Mouse
-                            </span>
-                <span>
-                                £44.99
-                            </span>
-            </div>
-        </div>
-    </div>
-    <div class="flex flex-col my-2 p-2 h-auto max-w-md md:w-1/2 md:max-w-md lg:w-1/3 lg:max-w-lg xl:max-w-xl">
-        <div class="flex flex-col md:items-center max-w-full hover:border-gray-600 border border-gray-400 p-6 hover:bg-gray-800 ">
-            <div class="h-auto overflow-hidden ">
-                <a href="#"><img src="assets/images/mx-master-3.png" alt=""></a>
-            </div>
-        </div>
-        <div class="flex pl-5 ">
-            <div class="flex flex-col  ">
-                <a href="#">
-                                <span class="font-bold text-xl" >
-                                    Logitech Mouse
-                                </span>
-                </a>
-                <span>
-                                Gaming Mouse
-                            </span>
-                <span>
-                                £44.99
-                            </span>
-            </div>
-        </div>
-    </div>
-    <div class="flex flex-col my-2 p-2 h-auto max-w-md md:hidden lg:flex md:w-1/2 md:max-w-md lg:w-1/3 lg:max-w-lg xl:max-w-xl">
-        <div class="flex flex-col md:items-center max-w-full hover:border-gray-600 border border-gray-400 p-6 hover:bg-gray-800 ">
-            <div class="h-auto overflow-hidden ">
-                <a href="#"><img src="assets/images/mx-master-3.png" alt=""></a>
-            </div>
-        </div>
-        <div class="flex pl-5 ">
-            <div class="flex flex-col  ">
-                <a href="#">
-                                <span class="font-bold text-xl" >
-                                    Logitech Mouse
-                                </span>
-                </a>
-                <span>
-                                Gaming Mouse
-                            </span>
-                <span>
-                                £44.99
-                            </span>
-            </div>
-        </div>
-    </div>
+            <div class=\"flex pl-5 \">
+	            <div class=\"flex flex-col \">
+	                <a href='productview.php?prodID={$rowObj->prodID}'>
+	                    <span class=\"font-bold text-xl\" >
+                            {$rowObj->prodName}
+                        </span>
+                    </a>
+                        <span>
+                        {$rowObj->catDesc}
+                        </span>
+                        <span>
+                       £{$rowObj->prodPrice}
+                        </span>
+                        <span id = \"cat\">
+                       {$rowObj->catDesc}
+                        </span>
+                    </div>
+	           </div>
+	</div>";
+
+    }
+
+
+    ?>
 
 </div>
 <!-- Reviews Section -->
