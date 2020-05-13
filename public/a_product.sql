@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: May 10, 2020 at 08:17 PM
+-- Generation Time: May 13, 2020 at 04:33 PM
 -- Server version: 5.5.58-0+deb7u1-log
 -- PHP Version: 5.6.31-1~dotdeb+7.1
 
@@ -29,7 +29,7 @@ SET time_zone = "+00:00";
 DROP TABLE IF EXISTS `a_product`;
 CREATE TABLE IF NOT EXISTS `a_product` (
 `prodID` int(5) NOT NULL,
-  `ProdStock` varchar(5) NOT NULL DEFAULT '',
+  `ProdStock` int(5) DEFAULT NULL,
   `prodName` varchar(256) NOT NULL,
   `prodDesc` varchar(256) DEFAULT NULL,
   `catID` varchar(6) DEFAULT NULL,
@@ -42,13 +42,12 @@ CREATE TABLE IF NOT EXISTS `a_product` (
 --
 
 INSERT INTO `a_product` (`prodID`, `ProdStock`, `prodName`, `prodDesc`, `catID`, `prodPrice`, `prodImage`) VALUES
-(1, '10', 'Razer DeathAdder', 'This is a gaming mouse. Popular with eSport players', 'c2', '30.00', 'RazerDeathAdder.jpeg\r\n'),
-(2, '5', 'Logitech G PRO Gaming Headset 2nd Generation', 'This is a headset', 'c3', '60.00', 'LPROHEADSET.jpeg\r\n'),
-(3, '3', 'HP Office Keyboard', 'Standard HP keyboard', 'c1', '2.00', 'HPkeyboard.jpeg\r\n'),
-(4, '2', 'Acer Full HD 21.5" 75Hz Gaming Monitor with AMD FreeSync - Black', 'Acer gaming monoitor. 75hz refresh rate', 'c4', '90.00', 'AcerMonitor.jpeg\r\n'),
-(5, '6', 'Xbox 360 controller', 'Brand new xbox 360 controller. Full packaging', 'c6', '15.00', '360Controller.jpeg\r\n'),
-(6, '11', 'Xbox 360', 'Brand new xbox 360. Full packaging', 'c5', '100.00', 'Xbox360.jpeg\r\n');
-
+(1, 11, 'Razer DeathAdder', 'This is a gaming mouse. Popular with eSport players', 'c2', '30.00', 'RazerDeathAdder.png\r\n'),
+(2, 5, 'Logitech G430 7.1 surround sound Headset', 'This is a headset', 'c3', '60.00', 'LG430.png\r\n'),
+(3, 3, 'HP Office Keyboard', 'Standard HP keyboard', 'c1', '2.00', 'HPkeyboard.png\r\n'),
+(4, 2, 'Acer HD 75Hz Gaming Monitor ', 'Acer gaming monoitor. 75hz refresh rate', 'c4', '90.00', 'AcerMonitor.png\r\n'),
+(5, 6, 'Xbox 360 controller', 'Brand new xbox 360 controller. Full packaging', 'c6', '15.00', '360Controller.png\r\n\r\n'),
+(6, 7, 'Xbox 360', 'Brand new xbox 360. Full packaging', 'c5', '100.00', 'Xbox360.png\r\n');
 
 --
 -- Indexes for dumped tables
