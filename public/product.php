@@ -147,9 +147,6 @@ exit;
                         </span>
                     </a>
                         <span>
-                        {$rowObj->catDesc}
-                        </span>
-                        <span>
                        £{$rowObj->prodPrice}
                         </span>
                         <span id = \"cat\">

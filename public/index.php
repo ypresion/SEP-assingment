@@ -289,9 +289,6 @@ if($queryResult === false) {
                         </span>
                     </a>
                         <span>
-                        {$rowObj->catDesc}
-                        </span>
-                        <span>
                        £{$rowObj->prodPrice}
                         </span>
                         <span id = \"cat\">
