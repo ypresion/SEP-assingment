@@ -10,7 +10,7 @@ $dbConn = getConnection();
 $sql =  "select * FROM a_product  
        INNER JOIN a_prodCat
        ON a_prodCat.catID = a_product.catID
-       ORDER BY ProdStock
+       ORDER BY ProdStock DESC 
        LIMIT 3
        
      ";
@@ -278,7 +278,7 @@ if($queryResult === false) {
         echo "<div class=\"flex flex-col my-2 p-2 h-auto max-w-sm md:w-1/2 md:max-w-md lg:w-1/3 lg:max-w-lg  xl:max-w-xl  \">
             <div class=\"flex flex-col md:items-center max-w-full hover:border-gray-600 border-2 p-6 hover:bg-gray-700 \">
                 <div class=\"h-auto overflow-hidden \">
-                    <a href='productview.php?prodID={$rowObj->prodID}'><img src=\"ProductPics/$rowObj->prodImage\" alt=\"\"></a>
+                    <a href='productview.php?prodID={$rowObj->prodID}'><img src=\"assets/ProductPics/$rowObj->prodImage\" alt=\"\"></a>
                 </div>
             </div>
             <div class=\"flex pl-5 \">
