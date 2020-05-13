@@ -10,8 +10,6 @@ $prodID = isset($_REQUEST['prodID']) ? $_REQUEST['prodID'] : null;
 $sql =  "select * FROM a_product
        INNER JOIN a_prodCat
       ON a_prodCat.catID = a_product.catID
-       INNER JOIN a_stock
-       ON a_stock.sID = a_product.sID
        WHERE prodID = '$prodID' ";
 
 $q1 = $dbConn->query($sql);

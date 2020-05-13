@@ -9,8 +9,6 @@ $dbConn = getConnection();
 $sql =  "select * FROM a_product
        INNER JOIN a_prodCat
       ON a_prodCat.catID = a_product.catID
-       INNER JOIN a_stock
-       ON a_stock.sID = a_product.sID
        ORDER BY prodName 
      ";
 
