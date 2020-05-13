@@ -18,8 +18,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-890">
-              <caret line="347" column="32" lean-forward="true" selection-start-line="347" selection-start-column="32" selection-end-line="362" selection-end-column="10" />
+            <state relative-caret-position="705">
+              <caret line="155" column="204" selection-start-line="155" selection-start-column="204" selection-end-line="155" selection-end-column="204" />
             </state>
           </provider>
         </entry>
@@ -27,8 +27,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/functions.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-9">
-              <caret line="1" column="5" lean-forward="true" selection-start-line="1" selection-start-column="5" selection-end-line="1" selection-end-column="5" />
+            <state relative-caret-position="578">
+              <caret line="34" lean-forward="true" selection-start-line="34" selection-end-line="34" />
             </state>
           </provider>
         </entry>
@@ -66,12 +66,12 @@
         <option value="$PROJECT_DIR$/a_newsletter.sql" />
         <option value="$PROJECT_DIR$/registerProcess.php" />
         <option value="$PROJECT_DIR$/functions.php" />
-        <option value="$PROJECT_DIR$/index.php" />
         <option value="$PROJECT_DIR$/registerNewsletter.php" />
+        <option value="$PROJECT_DIR$/index.php" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="731" />
     <option name="y" value="-9" />
     <option name="width" value="976" />
@@ -145,15 +145,15 @@
       <workItem from="1589138647868" duration="740000" />
       <workItem from="1589378864157" duration="3003000" />
       <workItem from="1589383231075" duration="1154000" />
-      <workItem from="1589384921245" duration="2538000" />
+      <workItem from="1589384921245" duration="2781000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="15746000" />
+    <option name="totallyTimeSpent" value="15989000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.10341151" />
@@ -318,15 +318,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/functions.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-9">
-          <caret line="1" column="5" lean-forward="true" selection-start-line="1" selection-start-column="5" selection-end-line="1" selection-end-column="5" />
+        <state relative-caret-position="578">
+          <caret line="34" lean-forward="true" selection-start-line="34" selection-end-line="34" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-890">
-          <caret line="347" column="32" lean-forward="true" selection-start-line="347" selection-start-column="32" selection-end-line="362" selection-end-column="10" />
+        <state relative-caret-position="705">
+          <caret line="155" column="204" selection-start-line="155" selection-start-column="204" selection-end-line="155" selection-end-column="204" />
         </state>
       </provider>
     </entry>
