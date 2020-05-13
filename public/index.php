@@ -269,7 +269,7 @@ if($queryResult === false) {
     </div>
 </div>
 <!-- limit to 3 query searches-->
-<div class="flex flex-wrap ">
+<div class="flex flex-wrap justify-center ">
 
 
     <?php

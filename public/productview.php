@@ -130,7 +130,7 @@ if($q1 === false) {
             <div class=\"lg:w-4/5 mx-auto flex flex-wrap\">
                 <div class=\"flex flex-col md:items-center max-w-full  lg:pt-10 md:ml-40 lg:ml-0\">
                     <div class=\"h-auto overflow-hidden \">
-                       <a href='productview.php?prodID={$rowObj->prodID}'><img src=\"ProductPics/$rowObj->prodImage\" alt=\" \"></a>
+                       <a href='productview.php?prodID={$rowObj->prodID}'><img src=\"assets/ProductPics/$rowObj->prodImage\" alt=\" \"></a>
                     </div>
                 </div>
 
