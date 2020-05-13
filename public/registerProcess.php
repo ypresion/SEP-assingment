@@ -25,7 +25,7 @@ else {
 
 
 
-function validate_logon ()
+function validate_register ()
 {
     $input = array();    // Create array for the form input
     $errors = array(); // Create an empty array to hold error messages

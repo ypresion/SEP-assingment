@@ -347,17 +347,19 @@ if($queryResult === false) {
 <!-- End Of Reviews -->
 <!-- Newsletter Subscription -->
 <section class="text-gray-700 body-font">
+    <form method="post" action="registerNewsletter.php">
     <div class=" px-3 py-2 mx-auto">
         <div class="flex flex-col text-center w-full mb-6">
             <h1 class="sm:text-3xl text-2xl font-medium title-font mb-2 text-gray-900">Our Newsletter</h1>
             <p class="lg:w-2/3 mx-auto leading-relaxed text-base">Be the first to get our latest offers and many more deals!</p>
         </div>
         <div class="flex lg:w-2/3 w-full sm:flex-row flex-col mx-auto px-4 sm:px-0">
-            <input class="flex-grow w-full bg-gray-100 rounded border border-gray-400 focus:outline-none focus:border-gray-500 text-base px-4 py-2 mr-4 mb-4 sm:mb-0" placeholder="Full Name" type="text">
-            <input class="flex-grow w-full bg-gray-100 rounded border border-gray-400 focus:outline-none focus:border-gray-500 text-base px-4 py-2 mr-4 mb-4 sm:mb-0" placeholder="Email" type="email">
-            <button class="text-white bg-gray-800 border-0 py-2 px-10 focus:outline-none hover:bg-gray-600 rounded text-lg">Subscribe</button>
+            <input class="flex-grow w-full bg-gray-100 rounded border border-gray-400 focus:outline-none focus:border-gray-500 text-base px-4 py-2 mr-4 mb-4 sm:mb-0" placeholder="Full Name" type="fn" name="fn">
+            <input class="flex-grow w-full bg-gray-100 rounded border border-gray-400 focus:outline-none focus:border-gray-500 text-base px-4 py-2 mr-4 mb-4 sm:mb-0" placeholder="Email" type="email" name = "email">
+            <button class="text-white bg-gray-800 border-0 py-2 px-10 focus:outline-none hover:bg-gray-600 rounded text-lg" type="submit">Subscribe</button>
         </div>
     </div>
+    </form>
 </section>
 <!-- End of Newsletter -->
 
