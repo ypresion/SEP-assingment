@@ -9,8 +9,6 @@ $dbConn = getConnection();
 $sql =  "select * FROM a_product
        INNER JOIN a_prodCat
       ON a_prodCat.catID = a_product.catID
-       INNER JOIN a_stock
-       ON a_stock.sID = a_product.sID
        ORDER BY prodName 
      ";
 
@@ -131,14 +129,14 @@ exit;
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="26" height="26"><path class="heroicon-ui" d="M 15.3 9.3 a 1 1 0 0 1 1.4 1.4 l -4 4 a 1 1 0 0 1 -1.4 0 l -4 -4 a 1 1 0 0 1 1.4 -1.4 l 3.3 3.29 l 3.3 -3.3 Z" /></svg>
 </div>
 <!--  Products -->
-<div class="flex flex-wrap justify-around">
+<div class="flex flex-wrap justify-center">
     <?php
 
     while($rowObj = $queryResult->fetchObject()) {
         echo "<div class=\"flex flex-col my-2 p-2 h-auto max-w-sm md:w-1/2 md:max-w-md lg:w-1/3 lg:max-w-lg  xl:max-w-xl  \">
-            <div class=\"flex flex-col md:items-center max-w-full hover:border-gray-600 border-2 p-6 hover:bg-gray-700 \">
+            <div class=\"flex flex-col md:items-center max-w-full hover:border-gray-600 border-2 p-6 hover:bg-gray-800 \">
                 <div class=\"h-auto overflow-hidden \">
-                    <a href='productview.php?prodID={$rowObj->prodID}'><img src=\"ProductPics/$rowObj->prodImage\" alt=\"\"></a>
+                    <a href='productview.php?prodID={$rowObj->prodID}'><img src=\"assets/ProductPics/$rowObj->prodImage\" alt=\"\"></a>
                 </div>
             </div>
             <div class=\"flex pl-5 \">
@@ -148,9 +146,6 @@ exit;
                             {$rowObj->prodName}
                         </span>
                     </a>
-                        <span>
-                        {$rowObj->catDesc}
-                        </span>
                         <span>
                        £{$rowObj->prodPrice}
                         </span>

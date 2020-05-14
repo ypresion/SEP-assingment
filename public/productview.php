@@ -10,8 +10,6 @@ $prodID = isset($_REQUEST['prodID']) ? $_REQUEST['prodID'] : null;
 $sql =  "select * FROM a_product
        INNER JOIN a_prodCat
       ON a_prodCat.catID = a_product.catID
-       INNER JOIN a_stock
-       ON a_stock.sID = a_product.sID
        WHERE prodID = '$prodID' ";
 
 $q1 = $dbConn->query($sql);
@@ -132,7 +130,7 @@ if($q1 === false) {
             <div class=\"lg:w-4/5 mx-auto flex flex-wrap\">
                 <div class=\"flex flex-col md:items-center max-w-full  lg:pt-10 md:ml-40 lg:ml-0\">
                     <div class=\"h-auto overflow-hidden \">
-                       <a href='productview.php?prodID={$rowObj->prodID}'><img src=\"ProductPics/$rowObj->prodImage\" alt=\" \"></a>
+                       <a href='productview.php?prodID={$rowObj->prodID}'><img src=\"assets/ProductPics/$rowObj->prodImage\" alt=\" \"></a>
                     </div>
                 </div>
 

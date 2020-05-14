@@ -8,12 +8,10 @@ $dbConn = getConnection();
 
 
 $sql =  "select * FROM a_product  
-       LIMIT 3
        INNER JOIN a_prodCat
        ON a_prodCat.catID = a_product.catID
-       INNER JOIN a_stock
-       ON a_stock.sID = a_product.sID
-       ORDER BY sNum 
+       ORDER BY ProdStock DESC 
+       LIMIT 3
        
      ";
 
@@ -112,45 +110,6 @@ if($queryResult === false) {
         </div> -->
       </div>
     </nav>
-    
-    <!-- Hero Section -->
-    <div class="carousel relative container mx-auto" style="max-width:1600px;">
-      <div class="carousel-inner relative overflow-hidden w-full">
-          <!--Slide 1-->
-          <input class="carousel-open" type="radio" id="carousel-1" name="carousel" aria-hidden="true" hidden="" checked="checked">
-          <div class="carousel-item absolute opacity-0" style="height:50vh;">
-              <div class="block h-full w-full mx-auto flex pt-6 md:pt-0 md:items-center bg-cover bg-right" style="background-image: url('images/hero-main.jpg');">
-
-                  <div class="container mx-auto">
-                      <div class="flex flex-col w-full lg:w-1/2 md:ml-16 items-center md:items-start px-6 tracking-wide">
-                          <p class="text-white text-2xl my-4">Stripy Zig Zag Jigsaw Pillow and Duvet Set</p>
-                          <a class=" text-white text-xl inline-block no-underline border-b border-gray-600 leading-relaxed hover:text-yellow-400 hover:border-yellow-400" href="#">view product</a>
-                      </div>
-                  </div>
-
-              </div>
-          </div>
-          <label for="carousel-3" class="prev control-1 w-10 h-10 ml-2 md:ml-10 absolute cursor-pointer hidden text-3xl font-bold text-black hover:text-white rounded-full bg-white hover:bg-gray-900 leading-tight text-center z-10 inset-y-0 left-0 my-auto">‹</label>
-          <label for="carousel-2" class="next control-1 w-10 h-10 mr-2 md:mr-10 absolute cursor-pointer hidden text-3xl font-bold text-black hover:text-white rounded-full bg-white hover:bg-gray-900 leading-tight text-center z-10 inset-y-0 right-0 my-auto">›</label>
-
-          <!--Slide 2-->
-          <input class="carousel-open" type="radio" id="carousel-2" name="carousel" aria-hidden="true" hidden="">
-          <div class="carousel-item absolute opacity-0 bg-cover bg-right" style="height:50vh;">
-            <div class="block h-full w-full mx-auto flex pt-6 md:pt-0 md:items-center bg-cover bg-right" style="background-image: url('images/hero-second.jpg');">
-                  <div class="container mx-auto">
-                      <div class="flex flex-col w-full lg:w-1/2 md:ml-16 items-center md:items-start px-6 tracking-wide">
-                          <p class="text-white text-2xl my-4">Real Bamboo Wall Clock</p>
-                          <a class=" text-white text-xl inline-block no-underline border-b border-gray-400 leading-relaxed hover:text-yellow-400 hover:border-yellow-400" href="#">view product</a>
-                      </div>
-                  </div>
-
-              </div>
-          </div>
-          <div>
-          </div>
-        </div>
-    </div>
-</nav>
 
 
 <!-- Hero Section -->
@@ -162,8 +121,8 @@ if($queryResult === false) {
             <div class="block h-full w-full mx-auto flex pt-6 md:pt-0 md:items-center bg-cover bg-right" style="background-image: url('assets/images/d5.jpg');">
                 <div class="container mx-auto">
                     <div class="flex flex-col w-full lg:w-1/2 md:ml-16 items-center md:items-start px-6 tracking-wide">
-                        <p class="text-white text-2xl font-bold my-4">Best Selling Gaming PC</p>
-                        <a class=" text-white text-xl inline-block no-underline border-2 p-2 uppercase border-gray-600 leading-relaxed hover:text-yellow-400 hover:border-yellow-400" href="#">view product</a>
+                        <p class="text-white text-2xl font-bold my-4">Best Selling Gaming PC's</p>
+                        <a class=" text-white text-xl inline-block no-underline border-2 p-2 uppercase border-gray-600 leading-relaxed hover:text-yellow-400 hover:border-yellow-400" href="product.php">view products</a>
                     </div>
                 </div>
 
@@ -179,7 +138,7 @@ if($queryResult === false) {
                 <div class="container mx-auto">
                     <div class="flex flex-col w-full lg:w-1/2 md:ml-16 items-center md:items-start px-6 tracking-wide">
                         <p class="text-white text-2xl font-bold my-4">Best Selling Laptops</p>
-                        <a class=" text-white text-xl inline-block no-underline border-2 p-2 uppercase border-gray-600 leading-relaxed hover:text-yellow-400 hover:border-yellow-400" href="#">view product</a>
+                        <a class=" text-white text-xl inline-block no-underline border-2 p-2 uppercase border-gray-600 leading-relaxed hover:text-yellow-400 hover:border-yellow-400" href="product.php">view products</a>
                     </div>
                 </div>
 
@@ -195,7 +154,7 @@ if($queryResult === false) {
                 <div class="container mx-auto">
                     <div class="flex flex-col w-full lg:w-1/2 md:ml-16 items-center md:items-start px-6 tracking-wide">
                         <p class="text-white text-2xl font-bold my-4">Best Selling Accessories</p>
-                        <a class=" text-white text-xl inline-block no-underline border-2 p-2 uppercase border-gray-600 leading-relaxed hover:text-yellow-400 hover:border-yellow-400" href="#">view product</a>
+                        <a class=" text-white text-xl inline-block no-underline border-2 p-2 uppercase border-gray-600 leading-relaxed hover:text-yellow-400 hover:border-yellow-400" href="product.php">view products</a>
                     </div>
                 </div>
 
@@ -224,17 +183,17 @@ if($queryResult === false) {
 <div class="flex flex-col lg:flex-row  mt-2">
     <div class="w-full lg:w-1/3 h-auto p-2  md:text-xl ">
         <button class="w-full p-2 bg-gray-800 hover:bg-gray-900 text-white font-semibold hover:text-white  border border-gray-400 hover:border-transparent rounded">
-            <a href="#">SHOP ACCESSORIES</a>
+            <a href="product.php">SHOP ACCESSORIES</a>
         </button>
     </div>
     <div class="w-full lg:w-1/3 h-auto p-2  md:text-xl ">
         <button class="w-full p-2 bg-gray-800 hover:bg-gray-900 text-white font-semibold hover:text-white  border border-gray-400 hover:border-transparent rounded">
-            <a href="#">SHOP GAMES</a>
+            <a href="product.php">SHOP GAMES</a>
         </button>
     </div>
     <div class="w-full lg:w-1/3 h-auto p-2  md:text-xl ">
         <button class="w-full p-2 bg-gray-800 hover:bg-gray-9I00 text-white font-semibold hover:text-white  border border-gray-400 hover:border-transparent rounded">
-            <a href="#">SHOP CONTROLLERS</a>
+            <a href="product.php">SHOP CONTROLLERS</a>
         </button>
     </div>
 
@@ -245,7 +204,7 @@ if($queryResult === false) {
     </div>
 </div>
 <!-- limit to 3 query searches-->
-<div class="flex flex-wrap ">
+<div class="flex flex-wrap justify-center ">
 
 
     <?php
@@ -254,7 +213,7 @@ if($queryResult === false) {
         echo "<div class=\"flex flex-col my-2 p-2 h-auto max-w-sm md:w-1/2 md:max-w-md lg:w-1/3 lg:max-w-lg  xl:max-w-xl  \">
             <div class=\"flex flex-col md:items-center max-w-full hover:border-gray-600 border-2 p-6 hover:bg-gray-700 \">
                 <div class=\"h-auto overflow-hidden \">
-                    <a href='productview.php?prodID={$rowObj->prodID}'><img src=\"ProductPics/$rowObj->prodImage\" alt=\"\"></a>
+                    <a href='productview.php?prodID={$rowObj->prodID}'><img src=\"assets/ProductPics/$rowObj->prodImage\" alt=\"\"></a>
                 </div>
             </div>
             <div class=\"flex pl-5 \">
@@ -264,9 +223,6 @@ if($queryResult === false) {
                             {$rowObj->prodName}
                         </span>
                     </a>
-                        <span>
-                        {$rowObj->catDesc}
-                        </span>
                         <span>
                        £{$rowObj->prodPrice}
                         </span>
@@ -326,17 +282,19 @@ if($queryResult === false) {
 <!-- End Of Reviews -->
 <!-- Newsletter Subscription -->
 <section class="text-gray-700 body-font">
+    <form method="post" action="registerNewsletter.php">
     <div class=" px-3 py-2 mx-auto">
         <div class="flex flex-col text-center w-full mb-6">
             <h1 class="sm:text-3xl text-2xl font-medium title-font mb-2 text-gray-900">Our Newsletter</h1>
             <p class="lg:w-2/3 mx-auto leading-relaxed text-base">Be the first to get our latest offers and many more deals!</p>
         </div>
         <div class="flex lg:w-2/3 w-full sm:flex-row flex-col mx-auto px-4 sm:px-0">
-            <input class="flex-grow w-full bg-gray-100 rounded border border-gray-400 focus:outline-none focus:border-gray-500 text-base px-4 py-2 mr-4 mb-4 sm:mb-0" placeholder="Full Name" type="text">
-            <input class="flex-grow w-full bg-gray-100 rounded border border-gray-400 focus:outline-none focus:border-gray-500 text-base px-4 py-2 mr-4 mb-4 sm:mb-0" placeholder="Email" type="email">
-            <button class="text-white bg-gray-800 border-0 py-2 px-10 focus:outline-none hover:bg-gray-600 rounded text-lg">Subscribe</button>
+            <input class="flex-grow w-full bg-gray-100 rounded border border-gray-400 focus:outline-none focus:border-gray-500 text-base px-4 py-2 mr-4 mb-4 sm:mb-0" placeholder="Full Name" type="fn" name="fn">
+            <input class="flex-grow w-full bg-gray-100 rounded border border-gray-400 focus:outline-none focus:border-gray-500 text-base px-4 py-2 mr-4 mb-4 sm:mb-0" placeholder="Email" type="email" name = "email">
+            <button class="text-white bg-gray-800 border-0 py-2 px-10 focus:outline-none hover:bg-gray-600 rounded text-lg" type="submit">Subscribe</button>
         </div>
     </div>
+    </form>
 </section>
 <!-- End of Newsletter -->
 
