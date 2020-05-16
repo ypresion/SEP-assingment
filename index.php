@@ -1,7 +1,4 @@
 <?php
-ini_set("session.save_path", "/home/unn_w18015597/sessionData");
-session_start();
-
 include './view.php';
 
 require_once("../controllers/functions.php");
@@ -10,7 +7,9 @@ $sql =  "select * FROM a_product
        INNER JOIN a_prodCat
        ON a_prodCat.catID = a_product.catID
        ORDER BY ProdStock DESC 
-       LIMIT 3";
+       LIMIT 3
+       
+     ";
 $queryResult = $dbConn->query($sql);
 if($queryResult === false) {
     echo "<p>Query failed: ".$dbConn->error."</p>\n</body>\n</html>";
@@ -19,10 +18,8 @@ if($queryResult === false) {
 
 
 $page = new Site();
-$page->renderNav();
-?>
 
-
+$html = <<<EOT
 <!-- Hero Section -->
     <div class="carousel relative container mx-auto" style="max-width:2560px;">
         <div class="carousel-inner relative overflow-hidden w-full">
@@ -114,39 +111,38 @@ $page->renderNav();
         <div class="overflow-hidden h-2 my-2 text-xs flex rounded bg-gray-400">
         </div>
       </div>
-      <!-- limit to 3 query searches-->
-      <div class="flex flex-wrap justify-center ">
-
-      <?php
+EOT;
 
 while($rowObj = $queryResult->fetchObject()) {
-    echo "<div class=\"flex flex-col my-2 p-2 h-auto max-w-sm md:w-1/2 md:max-w-md lg:w-1/3 lg:max-w-lg  xl:max-w-xl  \">
-        <div class=\"flex flex-col md:items-center max-w-full hover:border-gray-600 border-2 p-6 hover:bg-gray-700 \">
-            <div class=\"h-auto overflow-hidden \">
-                <a href='productview.php?prodID={$rowObj->prodID}'><img src=\"assets/ProductPics/$rowObj->prodImage\" alt=\"\"></a>
-            </div>
-        </div>
-        <div class=\"flex pl-5 \">
-          <div class=\"flex flex-col \">
-              <a href='productview.php?prodID={$rowObj->prodID}'>
-                  <span class=\"font-bold text-xl\" >
-                        {$rowObj->prodName}
-                    </span>
-                </a>
-                    <span>
-                   £{$rowObj->prodPrice}
-                    </span>
-                    <span id = \"cat\">
-                   {$rowObj->catDesc}
-                    </span>
+$html .= <<<EOT
+<!-- scroll bar -->
+    <div class="flex flex-wrap ">
+        <div class="flex flex-col my-2 p-2 h-auto max-w-md md:w-1/2 md:max-w-md lg:w-1/3 lg:max-w-lg xl:max-w-xl">
+            <div class="flex flex-col md:items-center max-w-full hover:border-gray-600 border border-gray-400 p-6 hover:bg-gray-800 ">
+                <div class="h-auto overflow-hidden ">
+                    <a href="productview.php?prodID={$rowObj->prodID}"><img src="assets/ProductPics/{$rowObj->prodImage}" alt=""></a>
                 </div>
-         </div>
-</div>";
-
+            </div>
+                    <div class="flex pl-5 ">
+                        <div class="flex flex-col  ">
+                            <a href="productview.php?prodID={$rowObj->prodID}">
+                                <span class="font-bold text-xl" >
+                                    {$rowObj->prodName}
+                                </span>
+                            </a>
+                            <span>
+                            {$rowObj->catDesc}
+                            </span>
+                            <span>
+                            £{$rowObj->prodPrice}
+                            </span>
+                        </div>
+                    </div>
+        </div>
+EOT;    
 }
 
-
-?>
+$html .= <<<EOT
     <!-- Reviews Section -->
     <section class="text-white">
       <div class=" px-1 py-2 mx-auto">
@@ -234,7 +230,7 @@ while($rowObj = $queryResult->fetchObject()) {
           </div>
         </div>
       </section>
+EOT;
 
-<?php
-  $page->renderFoot();
-?>
+$page->addContent($html);
+$page->render();

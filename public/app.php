@@ -25,11 +25,10 @@
 </head>
 
 <body>
-    
+<div data-role="page" id="index"></div>
+<div data-role="page" id="login"></div>
+<div data-role="page" id="register"></div>
+<div data-role="page" id="product"></div>
 
-    <div data-role="page" id="index"></div>
-    <div data-role="page" id="login"></div>
-    <div data-role="page" id="register"></div>
-    <div data-role="page" id="product"></div>
 </body>
 </html>

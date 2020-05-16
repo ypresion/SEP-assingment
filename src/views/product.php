@@ -1,10 +1,30 @@
 <?php
+ini_set("session.save_path", "/home/unn_w18015597/sessionData");
+session_start();
+
 include './view.php';
-
 $page = new Site();
+$page->renderNav();
 
-$html = <<<EOT
-			<div class="text-gray-700  text-sm md:text-base md:font-medium mt-2 flex justify-center md:justify-start md:mx-4" aria-label="Breadcrumb">
+require_once("../controllers/functions.php");
+
+$dbConn = getConnection();
+
+$sql =  "select * FROM a_product
+       INNER JOIN a_prodCat
+      ON a_prodCat.catID = a_product.catID
+       ORDER BY prodName 
+     ";
+
+$queryResult = $dbConn->query($sql);
+
+if($queryResult === false) {
+echo "<p>Query failed: ".$dbConn->error."</p>\n</body>\n</html>";
+exit;
+}
+?>
+
+<div class="text-gray-700  text-sm md:text-base md:font-medium mt-2 flex justify-center md:justify-start md:mx-4" aria-label="Breadcrumb">
 			<ol class="list-none p-0 inline-flex ">
 			  <li class="flex items-center uppercase">
 				<a href="index.html">Home</a>
@@ -31,140 +51,37 @@ $html = <<<EOT
 		</div>
 		<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="26" height="26"><path class="heroicon-ui" d="M 15.3 9.3 a 1 1 0 0 1 1.4 1.4 l -4 4 a 1 1 0 0 1 -1.4 0 l -4 -4 a 1 1 0 0 1 1.4 -1.4 l 3.3 3.29 l 3.3 -3.3 Z" /></svg>
 		</div>
-		<div class="flex flex-wrap justify-center">
-		<div class="flex flex-col my-2 p-2 h-auto max-w-sm md:w-1/2 md:max-w-md lg:w-1/3 lg:max-w-lg  xl:max-w-xl  ">
-			<div class="flex flex-col md:items-center max-w-full hover:border-gray-600 border-2 p-6 hover:bg-gray-800 ">
-				<div class="h-auto overflow-hidden ">
-					<a href="productview.html"><img src="assets/images/mx-master-3.png" alt=""></a>
-				</div>
-			</div>
-					<div class="flex pl-5 ">
-						<div class="flex flex-col  ">
-							<a href="productview.html">
-								<span class="font-bold text-xl" >
-									Logitech Mouse
-								</span>
-							</a>
-							<span>
-								Gaming Mouse
-							</span>
-							<span>
-								£44.99
-							</span>
-						</div>
-					</div>
-		</div>
-		<div class="flex flex-col my-2 p-2 h-auto max-w-sm md:w-1/2 md:max-w-md lg:w-1/3 lg:max-w-lg  xl:max-w-xl  ">
-			<div class="flex flex-col md:items-center max-w-full hover:border-gray-600 border-2 p-6 hover:bg-gray-800 ">
-				<div class="h-auto overflow-hidden ">
-					<a href="productview.html"><img src="assets/images/mx-master-3.png" alt=""></a>
-				</div>
-			</div>
-					<div class="flex pl-5 ">
-						<div class="flex flex-col  ">
-							<a href="productview.html">
-								<span class="font-bold text-xl" >
-									Logitech Mouse
-								</span>
-							</a>
-							<span>
-								Gaming Mouse
-							</span>
-							<span>
-								£44.99
-							</span>
-						</div>
-					</div>
-		</div>
-		<div class="flex flex-col my-2 p-2 h-auto max-w-sm md:w-1/2 md:max-w-md lg:w-1/3 lg:max-w-lg  xl:max-w-xl  ">
-			<div class="flex flex-col md:items-center max-w-full hover:border-gray-600 border-2 p-6 hover:bg-gray-800 ">
-				<div class="h-auto overflow-hidden ">
-					<a href="productview.html"><img src="assets/images/mx-master-3.png" alt=""></a>
-				</div>
-			</div>
-					<div class="flex pl-5 ">
-						<div class="flex flex-col  ">
-							<a href="productview.html">
-								<span class="font-bold text-xl" >
-									Logitech Mouse
-								</span>
-							</a>
-							<span>
-								Gaming Mouse
-							</span>
-							<span>
-								£44.99
-							</span>
-						</div>
-					</div>
-		</div>
-		<div class="flex flex-col my-2 p-2 h-auto max-w-sm md:w-1/2 md:max-w-md lg:w-1/3 lg:max-w-lg  xl:max-w-xl  ">
-			<div class="flex flex-col md:items-center max-w-full hover:border-gray-600 border-2 p-6 hover:bg-gray-800 ">
-				<div class="h-auto overflow-hidden ">
-					<a href="productview.html"><img src="assets/images/mx-master-3.png" alt=""></a>
-				</div>
-			</div>
-					<div class="flex pl-5 ">
-						<div class="flex flex-col  ">
-							<a href="productview.html">
-								<span class="font-bold text-xl" >
-									Logitech Mouse
-								</span>
-							</a>
-							<span>
-								Gaming Mouse
-							</span>
-							<span>
-								£44.99
-							</span>
-						</div>
-					</div>
-		</div>
-		<div class="flex flex-col my-2 p-2 h-auto max-w-sm md:w-1/2 md:max-w-md lg:w-1/3 lg:max-w-lg  xl:max-w-xl  ">
-			<div class="flex flex-col md:items-center max-w-full hover:border-gray-600 border-2 p-6 hover:bg-gray-800 ">
-				<div class="h-auto overflow-hidden ">
-					<a href="productview.html"><img src="assets/images/mx-master-3.png" alt=""></a>
-				</div>
-			</div>
-					<div class="flex pl-5 ">
-						<div class="flex flex-col  ">
-							<a href="productview.html">
-								<span class="font-bold text-xl" >
-									Logitech Mouse
-								</span>
-							</a>
-							<span>
-								Gaming Mouse
-							</span>
-							<span>
-								£44.99
-							</span>
-						</div>
-					</div>
-		</div>
-		<div class="flex flex-col my-2 p-2 h-auto max-w-sm md:w-1/2 md:max-w-md lg:w-1/3 lg:max-w-lg  xl:max-w-xl  ">
-			<div class="flex flex-col md:items-center max-w-full hover:border-gray-600 border-2 p-6 hover:bg-gray-800 ">
-				<div class="h-auto overflow-hidden ">
-					<a href="productview.html"><img src="assets/images/mx-master-3.png" alt=""></a>
-				</div>
-			</div>
-					<div class="flex pl-5 ">
-						<div class="flex flex-col  ">
-							<a href="productview.html">
-								<span class="font-bold text-xl" >
-									Logitech Mouse
-								</span>
-							</a>
-							<span>
-								Gaming Mouse
-							</span>
-							<span>
-								£44.99
-							</span>
-						</div>
-					</div>
-		</div>
-		</div>  
+<!--  Products -->
+<div class="flex flex-wrap justify-center">
+
+    <?php
+    while($rowObj = $queryResult->fetchObject()) {
+        echo "<div class=\"flex flex-col my-2 p-2 h-auto max-w-sm md:w-1/2 md:max-w-md lg:w-1/3 lg:max-w-lg  xl:max-w-xl  \">
+            <div class=\"flex flex-col md:items-center max-w-full hover:border-gray-600 border-2 p-6 hover:bg-gray-800 \">
+                <div class=\"h-auto overflow-hidden \">
+                    <a href='productview.php?prodID={$rowObj->prodID}'><img src=\"assets/ProductPics/$rowObj->prodImage\" alt=\"\"></a>
+                </div>
+            </div>
+            <div class=\"flex pl-5 \">
+	            <div class=\"flex flex-col \">
+	                <a href='productview.php?prodID={$rowObj->prodID}'>
+	                    <span class=\"font-bold text-xl\" >
+                            {$rowObj->prodName}
+                        </span>
+                    </a>
+                        <span>
+                       £{$rowObj->prodPrice}
+                        </span>
+                        <span id = \"cat\">
+                       {$rowObj->catDesc}
+                        </span>
+                    </div>
+	           </div>
+	</div>";
+    }
+ ?>
+
+</div>
 		<!-- Pagination -->
 		<ul class="flex justify-center mb-2">
 			<li class="mx-1 px-2 py-2 bg-gray-200  rounded-lg ">
@@ -187,7 +104,8 @@ $html = <<<EOT
 				</a>
 			</li>
 		</ul>
-		EOT;
 
-		$page->addContent($html);
-		$page->render();
+
+<?php
+	$page->renderFoot();
+?>

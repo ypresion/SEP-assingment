@@ -1,6 +1,7 @@
 <?php
-ini_set("session.save_path", "/home/unn_w18011022/sessionData");
+ini_set("session.save_path", "/home/unn_w18015597/sessionData");
 session_start();
+
 require_once("functions.php");
 
 $dbConn = getConnection();

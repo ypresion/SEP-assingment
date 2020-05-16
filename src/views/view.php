@@ -4,22 +4,8 @@
 		class Site {
 
 				private $navbar;
-				private $content;
 				private $footer;
 
-						
-				public function render() {
-						echo $this->getNavbar();
-						echo $this->content;
-						echo $this->getFooter();
-				}
-
-				//Add HTML content to the website
-				public function addContent($html) {
-						$this->content .= '<div role="main" class="ui-content">';
-						$this->content .= $html;
-						$this->content .= '</div>';
-				}
 
 				private function getNavbar() {
 						$this->navbar = <<<EOT
@@ -74,12 +60,14 @@
 			</div>
 		  </nav>
   </div>
+  <div role="main" class="ui-content">
 EOT;
 return $this->navbar;
 				}
 
 				private function getFooter() {
 						$this->footer = <<<EOT
+						</div>
 						<div data-role="footer">
 						<footer class="text-gray-700 body-font">
 					<div class="px-5 py-2 mx-auto flex items-center sm:flex-row flex-col">
@@ -121,9 +109,21 @@ return $this->navbar;
 					</div>
 					</footer>
 					</div>
+					<script src="scripts/nav.js"></script>
+<script src="scripts/login.js"></script>
+<script src="scripts/register.js"></script>
 EOT;
 		return $this->footer;
 				}
-		}
+
+		public function renderNav() {
+			echo $this->getNavbar();
+		}	
+		
+		public function renderFoot() {
+			echo $this->getFooter();
+		}	
+
+}
 
 ?>
