@@ -13,7 +13,7 @@ $stmt = $dbConn->prepare($sqlInsert);
 $stmt->execute(array(':fullname' =>  $input['fn'], ':email' => $input['email'],':subscribed' => $input['subscribe'] ));
 
 echo "<p> Thank you for subscribing!</p>";
-echo "<a href = index.php>Click here to go to homepage</a>";
+echo "<a href ='http://unn-w18015597.newnumyspace.co.uk/T/public/app.php'>Click here to go to homepage</a>";
 
 }
 

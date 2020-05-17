@@ -1,5 +1,5 @@
 <?php
-ini_set("session.save_path", "/home/unn_w18011022/sessionData");
+ini_set("session.save_path", "/home/unn_w18015597/sessionData");
 session_start();
 
 list($input, $errors) = validate_logon();
@@ -18,14 +18,14 @@ else {
     $stmt->execute(array(':firstname' =>  $input['first'], ':surname' => $input['last'], ':username' => $input['username'],':passwordHash' => $input['password']));
 
     echo "<p> Registered! </p>";
-    echo "<a href = login.php>Click here to go to login page</a>";
+    echo "<a href ='http://unn-w18015597.newnumyspace.co.uk/T/public/app.php#login'>Click here to go to login page</a>";
 
 }
 
 
 
 
-function validate_register ()
+function validate_logon ()
 {
     $input = array();    // Create array for the form input
     $errors = array(); // Create an empty array to hold error messages

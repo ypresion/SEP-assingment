@@ -2,7 +2,7 @@
 ini_set("session.save_path", "/home/unn_w18015597/sessionData");
 session_start();
 
-include './view.php';
+include '/home/unn_w18015597/public_html/T/src/views/view.php';
 
 require_once("../controllers/functions.php");
 $dbConn = getConnection();
@@ -28,15 +28,14 @@ $page->renderNav();
         <div class="carousel-inner relative overflow-hidden w-full">
             <!--Slide 1-->
             <input class="carousel-open" type="radio" id="carousel-1" name="carousel" aria-hidden="true" hidden="" checked="checked">
-            <div class="carousel-item absolute opacity-0" style="height:50vh;">
+            <div class="carousel-item absolute opacity-0" style="height:50vh;" data-transition="slide">
                 <div class="block h-full w-full mx-auto flex pt-6 md:pt-0 md:items-center bg-cover bg-right" style="background-image: url('assets/images/d5.jpg');">
                     <div class="container mx-auto">
                         <div class="flex flex-col w-full lg:w-1/2 md:ml-16 items-center md:items-start px-6 tracking-wide">
-                            <p class="text-white text-2xl font-bold my-4">Best Selling Gaming PC</p>
-                            <a class=" text-white text-xl inline-block no-underline border-2 p-2 uppercase border-gray-600 leading-relaxed hover:text-yellow-400 hover:border-yellow-400" href="#">view product</a>
+                            <p class="text-white text-2xl font-bold my-4">Best Selling Monitor</p>
+                            <a class=" text-white text-xl inline-block no-underline border-2 p-2 uppercase border-gray-600 leading-relaxed hover:text-yellow-400 hover:border-yellow-400" href="http://unn-w18015597.newnumyspace.co.uk/T/public/productview.php?prodID=4" data-ajax="false">view product</a>
                         </div>
                     </div>
-  
                 </div>
             </div>
             <label for="carousel-3" class="prev control-1 w-10 h-10 ml-2 md:ml-10 absolute cursor-pointer hidden text-3xl font-bold text-black hover:text-white rounded-full bg-white hover:bg-gray-900 leading-tight text-center z-10 inset-y-0 left-0 my-auto">‹</label>
@@ -44,11 +43,11 @@ $page->renderNav();
   
             <!--Slide 2-->
             <input class="carousel-open" type="radio" id="carousel-2" name="carousel" aria-hidden="true" hidden="">
-            <div class="carousel-item absolute opacity-0 bg-cover bg-right" style="height:50vh;">
+            <div class="carousel-item absolute opacity-0 bg-cover bg-right" style="height:50vh;" data-transition="slide">
               <div class="block h-full w-full mx-auto flex pt-6 md:pt-0 md:items-center bg-cover bg-right" style="background-image: url('assets/images/d4.jpg');">
                     <div class="container mx-auto">
                       <div class="flex flex-col w-full lg:w-1/2 md:ml-16 items-center md:items-start px-6 tracking-wide">
-                        <p class="text-white text-2xl font-bold my-4">Best Selling Laptops</p>
+                        <p class="text-white text-2xl font-bold my-4">Best Selling Laptop</p>
                         <a class=" text-white text-xl inline-block no-underline border-2 p-2 uppercase border-gray-600 leading-relaxed hover:text-yellow-400 hover:border-yellow-400" href="#">view product</a>
                     </div>
                     </div>
@@ -60,12 +59,12 @@ $page->renderNav();
   
             <!--Slide 3-->
             <input class="carousel-open" type="radio" id="carousel-3" name="carousel" aria-hidden="true" hidden="">
-            <div class="carousel-item absolute opacity-0" style="height:50vh;">
+            <div class="carousel-item absolute opacity-0" style="height:50vh;" data-transition="slide">
               <div class="block h-full w-full mx-auto flex pt-6 md:pt-0 md:items-center bg-cover bg-right" style="background-image: url('assets/images/d1.png');">
                     <div class="container mx-auto">
                       <div class="flex flex-col w-full lg:w-1/2 md:ml-16 items-center md:items-start px-6 tracking-wide">
-                        <p class="text-white text-2xl font-bold my-4">Best Selling Accessories</p>
-                        <a class=" text-white text-xl inline-block no-underline border-2 p-2 uppercase border-gray-600 leading-relaxed hover:text-yellow-400 hover:border-yellow-400" href="#">view product</a>
+                        <p class="text-white text-2xl font-bold my-4">Best Selling Accessory</p>
+                        <a class=" text-white text-xl inline-block no-underline border-2 p-2 uppercase border-gray-600 leading-relaxed hover:text-yellow-400 hover:border-yellow-400" data-ajax="false" href="http://unn-w18015597.newnumyspace.co.uk/T/public/productview.php?prodID=2">view product</a>
                     </div>
                     </div>
   
@@ -90,6 +89,7 @@ $page->renderNav();
         </div>
     </div>
     <!-- End of Hero -->
+
       <!-- Categories Section -->
       <div class="flex flex-col lg:flex-row  mt-2">
         <div class="w-full lg:w-1/3 h-auto p-2  md:text-xl ">
@@ -123,7 +123,7 @@ while($rowObj = $queryResult->fetchObject()) {
     echo "<div class=\"flex flex-col my-2 p-2 h-auto max-w-sm md:w-1/2 md:max-w-md lg:w-1/3 lg:max-w-lg  xl:max-w-xl  \">
         <div class=\"flex flex-col md:items-center max-w-full hover:border-gray-600 border-2 p-6 hover:bg-gray-700 \">
             <div class=\"h-auto overflow-hidden \">
-                <a href='productview.php?prodID={$rowObj->prodID}'><img src=\"assets/ProductPics/$rowObj->prodImage\" alt=\"\"></a>
+                <a href='productview.php?prodID={$rowObj->prodID}' data-ajax=\"false\"><img src=\"assets/ProductPics/$rowObj->prodImage\" alt=\"\"></a>
             </div>
         </div>
         <div class=\"flex pl-5 \">
@@ -190,18 +190,20 @@ while($rowObj = $queryResult->fetchObject()) {
     <!-- End Of Reviews -->
         <!-- Newsletter Subscription -->
         <section class="text-gray-700 body-font">
-          <div class=" px-3 py-2 mx-auto">
-            <div class="flex flex-col text-center w-full mb-6">
-              <h1 class="sm:text-3xl text-2xl font-medium title-font mb-2 text-gray-900">Our Newsletter</h1>
-              <p class="lg:w-2/3 mx-auto leading-relaxed text-base">Be the first to get our latest offers and many more deals!</p>
-            </div>
-            <div class="flex lg:w-2/3 w-full sm:flex-row flex-col mx-auto px-4 sm:px-0">
-              <input class="flex-grow w-full bg-gray-100 rounded border border-gray-400 focus:outline-none focus:border-gray-500 text-base px-4 py-2 mr-4 mb-4 sm:mb-0" placeholder="Full Name" type="text">
-              <input class="flex-grow w-full bg-gray-100 rounded border border-gray-400 focus:outline-none focus:border-gray-500 text-base px-4 py-2 mr-4 mb-4 sm:mb-0" placeholder="Email" type="email">
-              <button class="text-white bg-gray-800 border-0 py-2 px-10 focus:outline-none hover:bg-gray-600 rounded text-lg">Subscribe</button>
-            </div>
-          </div>
-        </section>
+    <form method="post" action="../src/controllers/registerNewsletter.php" data-ajax="false">
+    <div class=" px-3 py-2 mx-auto">
+        <div class="flex flex-col text-center w-full mb-6">
+            <h1 class="sm:text-3xl text-2xl font-medium title-font mb-2 text-gray-900">Our Newsletter</h1>
+            <p class="lg:w-2/3 mx-auto leading-relaxed text-base">Be the first to get our latest offers and many more deals!</p>
+        </div>
+        <div class="flex lg:w-2/3 w-full sm:flex-row flex-col mx-auto px-4 sm:px-0">
+            <input class="flex-grow w-full bg-gray-100 rounded border border-gray-400 focus:outline-none focus:border-gray-500 text-base px-4 py-2 mr-4 mb-4 sm:mb-0" placeholder="Full Name" type="fn" name="fn">
+            <input class="flex-grow w-full bg-gray-100 rounded border border-gray-400 focus:outline-none focus:border-gray-500 text-base px-4 py-2 mr-4 mb-4 sm:mb-0" placeholder="Email" type="email" name = "email">
+            <button class="text-white bg-gray-800 border-0 py-2 px-10 focus:outline-none hover:bg-gray-600 rounded text-lg" type="submit">Subscribe</button>
+        </div>
+    </div>
+    </form>
+</section>
     <!-- End of Newsletter -->
 
     <!-- App Showcase Section -->
@@ -234,7 +236,7 @@ while($rowObj = $queryResult->fetchObject()) {
           </div>
         </div>
       </section>
-
+      </div>
 <?php
   $page->renderFoot();
 ?>

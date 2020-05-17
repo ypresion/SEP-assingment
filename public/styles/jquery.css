@@ -177,12 +177,12 @@ div.ui-mobile-viewport {
 	font-size: 1em;
 	display: inline-block;
 }
-.ui-header,
+/* .ui-header,
 .ui-footer {
 	border-width: 1px 0;
 	border-style: solid;
 	position: relative;
-}
+} */
 .ui-header:empty,
 .ui-footer:empty {
 	min-height: 2.6875em;
@@ -210,7 +210,7 @@ div.ui-mobile-viewport {
 
 }
 /* Corner styling for dialogs and popups */
-.ui-corner-all > .ui-header:first-child,
+/* .ui-corner-all > .ui-header:first-child,
 .ui-corner-all > .ui-content:first-child,
 .ui-corner-all > .ui-footer:first-child {
 	-webkit-border-top-left-radius: inherit;
@@ -225,9 +225,9 @@ div.ui-mobile-viewport {
 	border-bottom-left-radius: inherit;
 	-webkit-border-bottom-right-radius: inherit;
 	border-bottom-right-radius: inherit;
-}
+} */
 /* Buttons and icons */
-.ui-btn {
+/* .ui-btn {
 	font-size: 16px;
 	margin: .5em 0;
 	padding: .7em 1em;
@@ -259,7 +259,7 @@ div.ui-mobile-viewport {
 	font-size: inherit;
 }
 /* Make buttons in toolbars default to mini and inline. */
-.ui-header .ui-btn,
+/* .ui-header .ui-btn,
 .ui-footer .ui-btn {
 	font-size: 12.5px;
 	display: inline-block;
@@ -267,10 +267,10 @@ div.ui-mobile-viewport {
 }
 .ui-header .ui-controlgroup .ui-btn-icon-notext,
 .ui-footer .ui-controlgroup .ui-btn-icon-notext {
-    font-size: 12.5px;
+    font-size: 12.5px; */
 }
 /* To ensure same top and left/right position when ui-btn-left/right are added to something other than buttons. */
-.ui-header .ui-btn-left,
+/*.ui-header .ui-btn-left,
 .ui-header .ui-btn-right {
 	font-size: 12.5px;
 }
@@ -353,7 +353,6 @@ div.ui-mobile-viewport {
 	top: auto;
 	bottom: .5625em;
 }
-/* Buttons in header position classes */
 .ui-header .ui-btn-left,
 .ui-header .ui-btn-right,
 .ui-btn-left > [class*="ui-"],
@@ -378,9 +377,9 @@ div.ui-mobile-viewport {
 .ui-btn-icon-notext.ui-btn-right {
 	top: .3125em;
 	right: .3125em;
-}
+} */
 /* Button elements */
-button.ui-btn,
+/* button.ui-btn,
 .ui-controlgroup-controls button.ui-btn-icon-notext {
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
@@ -393,9 +392,9 @@ button.ui-btn-inline,
 .ui-header button.ui-btn,
 .ui-footer button.ui-btn {
 	width: auto;
-}
+} */
 /* Firefox adds a 1px border in a button element. We negate this to make sure they have the same height as other buttons in controlgroups. */
-button.ui-btn::-moz-focus-inner {
+/* button.ui-btn::-moz-focus-inner {
 	border: 0;
 }
 button.ui-btn-icon-notext,
@@ -404,13 +403,13 @@ button.ui-btn-icon-notext,
 	-moz-box-sizing: content-box;
 	box-sizing: content-box;
 	width: 1.75em;
-}
+} */
 /* Form labels */
-.ui-mobile label,
+/* .ui-mobile label,
 .ui-controlgroup-label {
 	display: block;
 	margin: 0 0 .4em;
-}
+} */
 /* Accessible content hiding */
 /* ui-hide-label deprecated in 1.4. TODO: Remove in 1.5 */
 .ui-hide-label > label,
@@ -1513,7 +1512,7 @@ li.ui-block-e {
 	border-top-width: 1px;
 }
 /* Hide the native input element */
-.ui-input-btn input {
+/* .ui-input-btn input {
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -1534,7 +1533,7 @@ li.ui-block-e {
 	font-size: 1px;
 	text-indent: -9999px;
 	z-index: 2;
-}
+} */
 /* Fixes IE/WP filter alpha opacity bugs */
 .ui-input-btn.ui-state-disabled input {
 	position: absolute !important;
@@ -2801,7 +2800,7 @@ div.ui-rangeslider label {
 	margin-top: 0;
 	margin-bottom: 0;
 }
-.ui-input-text,
+/* .ui-input-text,
 .ui-input-search {
 	margin: .5em 0;
 	border-width: 1px;
@@ -2827,7 +2826,7 @@ textarea.ui-input-text {
 	margin: 0;
 	min-height: 2.2em;
 	text-align: left; /* Opera aligns type="date" right by default */
-	border: 0;
+	/* border: 0;
 	background: transparent none;
 	-webkit-appearance: none;
 	-webkit-border-radius: inherit;
@@ -2844,16 +2843,16 @@ textarea.ui-input-text {
 .ui-mini textarea.ui-input-text,
 textarea.ui-mini {
 	font-size: 14px;
-}
+} */
 /* Same margin for mini textareas as other mini sized widgets (12.5/14 * 0.5em) */
-.ui-mini textarea.ui-input-text,
+/* .ui-mini textarea.ui-input-text,
 textarea.ui-mini {
 	margin: .446em 0;
 }
 .ui-input-has-clear,
 .ui-input-search {
 	position: relative;
-}
+}  */
 /* Padding on the div instead of input because of browser spinners etc. */
 .ui-input-has-clear {
 	padding-right: 2.375em;

@@ -1,9 +1,13 @@
 <?php
+ini_set("session.save_path", "/home/unn_w18015597/sessionData");
+session_start();
+require_once("../controllers/functions.php");
+
 include './view.php';
-
 $page = new Site();
+$page->renderNav();
+?>
 
-$html = <<<EOT
 <!-- Container -->
 		<div class="container mx-auto">
 			<div class="flex justify-center px-6 my-12">
@@ -17,38 +21,39 @@ $html = <<<EOT
 					<!-- Col -->
 					<div class="w-full lg:w-1/2 bg-white p-5 rounded-lg lg:rounded-l-none">
 						<h3 class="pt-4 text-2xl text-center">Welcome Back!</h3>
-						<form class="px-8 pt-6 pb-8 mb-4 bg-white rounded" method="post" action="loginProcess.php">
+						<form id="loginForm" class="px-8 pt-6 pb-8 mb-4 bg-white rounded" method="post" data-ajax="false" action="../src/controllers/loginProcess.php">
 							<div class="mb-4">
 								<label class="block mb-2 text-sm font-bold text-gray-700" for="username">
 									Username
 								</label>
 								<input
-									class="w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
+									class="to-validate w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
 									id="username"
 									name="username"
 									type="text"
 									placeholder="Username"
 								/>
+								<p class="warning text-xs italic text-red-500 hidden">Please enter a valid username.</p>
 							</div>
 							<div class="mb-4">
 								<label class="block mb-2 text-sm font-bold text-gray-700" for="password">
 									Password
 								</label>
 								<input
-									class="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border  rounded shadow appearance-none focus:outline-none focus:shadow-outline"
+									class="to-validate w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border  rounded shadow appearance-none focus:outline-none focus:shadow-outline"
 									id="password"
 									name="password"
 									type="password"
 									placeholder="******************"
 								/>
-								<p id="warning" class="text-xs italic text-red-500 hidden">Please choose a password.</p>
+								<p class="warning text-xs italic text-red-500 hidden">Please enter a valid password.</p>
 							</div>
 							<div class="mb-4">
-								<input class="mr-2 leading-tight" type="checkbox" id="checkbox_id" />
-								<label class="text-sm" for="checkbox_id">
-									Remember Me
-								</label>
-							</div>
+                        	<input class="mr-2 leading-tight" type="checkbox" id="checkbox_id" />
+                        	<label class="text-sm" for="checkbox_id">
+                            	Remember Me
+                       		</label>
+                    		</div>
 							<div class="mb-6 text-center">
 
 								<button class="w-full px-4 text-white bg-gray-800 border-0 py-2 px-10 focus:outline-none hover:bg-gray-600 rounded text-lg" type="submit">Login
@@ -59,7 +64,7 @@ $html = <<<EOT
 							<div class="text-center">
 								<a
 									class="inline-block text-sm text-blue-500 align-baseline hover:text-blue-800"
-									href="registerForm.html"
+									href="#register"
 								>
 									Create an Account!
 								</a>
@@ -77,7 +82,7 @@ $html = <<<EOT
 				</div>
 			</div>
         </div>
-EOT;
 
-$page->addContent($html);
-$page->render();
+<?php
+  $page->renderFoot();
+?>
