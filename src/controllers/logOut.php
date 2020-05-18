@@ -7,4 +7,4 @@ $_SESSION = array();
 
 session_destroy();
 
-header("Location: http://unn-w18015597.newnumyspace.co.uk/T/public/app.php");
+header("Location: http://unn-w18015597.newnumyspace.co.uk/T/public/index.php?page=index");

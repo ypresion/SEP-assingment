@@ -1,12 +1,5 @@
 <?php
-ini_set("session.save_path", "/home/unn_w18015597/sessionData");
-session_start();
-require_once("../controllers/functions.php");
-
-include './view.php';
-
-$page = new Site();
-$page->renderNav();
+require_once("../src/controllers/functions.php");
 ?>
 
 <!-- Basket -->
@@ -55,7 +48,3 @@ $page->renderNav();
     </section>
 
 </div>
-
-<?php
-  $page->renderFoot();
-?>

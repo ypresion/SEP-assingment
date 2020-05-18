@@ -1,12 +1,5 @@
 <?php
-ini_set("session.save_path", "/home/unn_w18015597/sessionData");
-session_start();
-
-include './view.php';
-$page = new Site();
-$page->renderNav();
-
-require_once("../controllers/functions.php");
+require_once("../src/controllers/functions.php");
 
 $dbConn = getConnection();
 
@@ -104,8 +97,3 @@ exit;
 				</a>
 			</li>
 		</ul>
-
-
-<?php
-	$page->renderFoot();
-?>

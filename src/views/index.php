@@ -1,10 +1,10 @@
 <?php
-ini_set("session.save_path", "/home/unn_w18015597/sessionData");
-session_start();
+// ini_set("session.save_path", "/home/unn_w18015597/sessionData");
+// session_start();
 
-include '/home/unn_w18015597/public_html/T/src/views/view.php';
+// include '/home/unn_w18015597/public_html/T/src/views/view.php';
 
-require_once("../controllers/functions.php");
+require_once("../src/controllers/functions.php");
 $dbConn = getConnection();
 $sql =  "select * FROM a_product  
        INNER JOIN a_prodCat
@@ -18,9 +18,9 @@ if($queryResult === false) {
 }
 
 
-$page = new Site();
-$page->renderNav();
-?>
+// $page = new Site();
+// $page->renderNav();
+?> 
 
 
 <!-- Hero Section -->
@@ -197,8 +197,8 @@ while($rowObj = $queryResult->fetchObject()) {
             <p class="lg:w-2/3 mx-auto leading-relaxed text-base">Be the first to get our latest offers and many more deals!</p>
         </div>
         <div class="flex lg:w-2/3 w-full sm:flex-row flex-col mx-auto px-4 sm:px-0">
-            <input class="flex-grow w-full bg-gray-100 rounded border border-gray-400 focus:outline-none focus:border-gray-500 text-base px-4 py-2 mr-4 mb-4 sm:mb-0" placeholder="Full Name" type="fn" name="fn">
-            <input class="flex-grow w-full bg-gray-100 rounded border border-gray-400 focus:outline-none focus:border-gray-500 text-base px-4 py-2 mr-4 mb-4 sm:mb-0" placeholder="Email" type="email" name = "email">
+            <input class="to-validate flex-grow w-full bg-gray-100 rounded border border-gray-400 focus:outline-none focus:border-gray-500 text-base px-4 py-2 mr-4 mb-4 sm:mb-0" placeholder="Full Name" type="fn" name="fn">
+            <input class="to-validate flex-grow w-full bg-gray-100 rounded border border-gray-400 focus:outline-none focus:border-gray-500 text-base px-4 py-2 mr-4 mb-4 sm:mb-0" placeholder="Email" type="email" name = "email">
             <button class="text-white bg-gray-800 border-0 py-2 px-10 focus:outline-none hover:bg-gray-600 rounded text-lg" type="submit">Subscribe</button>
         </div>
     </div>
@@ -237,6 +237,9 @@ while($rowObj = $queryResult->fetchObject()) {
         </div>
       </section>
       </div>
-<?php
-  $page->renderFoot();
-?>
+      <script>
+        $(document).ready(function(){
+          $('div.ui-radio').contents().unwrap();
+          $('div.ui-input-text').contents().unwrap();
+        }); 
+      </script>
