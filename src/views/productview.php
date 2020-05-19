@@ -1,29 +1,8 @@
-<?php
-ini_set("session.save_path", "/home/unn_w18015597/sessionData");
-session_start();
-?>
-
-<!DOCTYPE html> 
-<html>
-<head>
-    <title>T Gaming - Shop Best Gaming Accessories Online!</title>
-    
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="build/tailwind.css">
-    <link rel="stylesheet" href="styles/jquery.css">
-    <link rel="stylesheet" href="styles/global.css">
-    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
-    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
-</head>
 
 <?php
-include '../src/views/view.php';
 require_once("../src/controllers/functions.php");
 
 $dbConn = getConnection();
-
 $prodID = isset($_REQUEST['prodID']) ? $_REQUEST['prodID'] : null;
 
 $sql =  "select * FROM a_product
@@ -33,26 +12,21 @@ $sql =  "select * FROM a_product
 
 $q1 = $dbConn->query($sql);
 
-
 if($q1 === false) {
     echo "<p>Query 1 failed: ".$dbConn->error."</p>\n</body>\n</html>";
     exit;
 }
-
-$page = new Site();
-$page->renderNav();
-
 ?>
 
     <!-- Breadcrumbs -->
     <div class="text-gray-700 font-medium mt-2 flex justify-center md:justify-start md:mx-4" aria-label="Breadcrumb">
         <ol class="list-none p-0 inline-flex">
             <li class="flex items-center">
-                <a href="#">Home</a>
+                <a href="index.php?page=index">Home</a>
                 <svg class="fill-current w-3 h-3 mx-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"/></svg>
             </li>
             <li class="flex items-center">
-                <a href="#">All Products</a>
+                <a href="index.php?page=product">All Products</a>
                 <svg class="fill-current w-3 h-3 mx-3 hidden" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"/></svg>
             </li>
             <li>
@@ -74,7 +48,7 @@ $page->renderNav();
             <div class=\"lg:w-4/5 mx-auto flex flex-wrap\">
                 <div class=\"flex flex-col md:items-center max-w-full  lg:pt-10 md:ml-40 lg:ml-0\">
                     <div class=\"h-auto overflow-hidden \">
-                       <a href='productview.php?prodID={$rowObj->prodID}'><img src=\"assets/ProductPics/$rowObj->prodImage\" alt=\" \"></a>
+                       <a href='index.php?page=productview&prodID={$rowObj->prodID}'><img src=\"assets/ProductPics/$rowObj->prodImage\" alt=\" \"></a>
                     </div>
                 </div>
 
@@ -218,6 +192,3 @@ $page->renderNav();
     <!-- Newsletter Subscription -->
 
 
-  <?php
-  $page->renderFoot();
-  ?>

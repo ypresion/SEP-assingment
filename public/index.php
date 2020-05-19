@@ -6,25 +6,27 @@ session_start();
 <!DOCTYPE html> 
 <html>
     <?php
-    include '../src/views/header.php';
+    include '../src/views/components/header.php';
     ?>
     <body>
     <div data-role="page">
         <div data-role="header">
         <?php
-        include '../src/views/nav.php';
+        include '../src/views/components/nav.php';
         ?>
         </div>
 
         
             <?php
-                include '../src/views/'.$_GET['page'].'.php';
+                $page = isset($_REQUEST['page']) ? $_REQUEST['page'] : null;
+                include '../src/views/'.$page.'.php';
+                
             ?>
         
         
         <div data-role="footer" data-id="foot">
         <?php
-        include '../src/views/footer.php';
+        include '../src/views/components/footer.php';
         ?>    
         </div>
     </div>

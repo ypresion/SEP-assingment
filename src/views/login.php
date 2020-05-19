@@ -58,7 +58,7 @@ require_once("../src/controllers/functions.php");
 							<div class="text-center">
 								<a
 									class="inline-block text-sm text-blue-500 align-baseline hover:text-blue-800"
-									href="#register"
+									href="index.php?page=register"
 								>
 									Create an Account!
 								</a>
@@ -75,5 +75,19 @@ require_once("../src/controllers/functions.php");
 					</div>
 				</div>
 			</div>
-        </div>
+		</div>
+		<script>
+        //get rid of jquery wrappers
+        $(document).ready(function(){
+          $('div.ui-radio').each(function() {
+              $(this).contents().unwrap();
+          });
+          $('div.ui-input-text').each(function() {
+              $(this).contents().unwrap();
+          });
+          $('div.ui-checkbox').each(function() {
+              $(this).contents().unwrap();
+          });
+        }); 
+      </script>
 

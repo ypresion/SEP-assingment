@@ -1,8 +1,4 @@
 <?php
-// ini_set("session.save_path", "/home/unn_w18015597/sessionData");
-// session_start();
-
-// include '/home/unn_w18015597/public_html/T/src/views/view.php';
 
 require_once("../src/controllers/functions.php");
 $dbConn = getConnection();
@@ -17,9 +13,6 @@ if($queryResult === false) {
     exit;
 }
 
-
-// $page = new Site();
-// $page->renderNav();
 ?> 
 
 
@@ -33,7 +26,7 @@ if($queryResult === false) {
                     <div class="container mx-auto">
                         <div class="flex flex-col w-full lg:w-1/2 md:ml-16 items-center md:items-start px-6 tracking-wide">
                             <p class="text-white text-2xl font-bold my-4">Best Selling Monitor</p>
-                            <a class=" text-white text-xl inline-block no-underline border-2 p-2 uppercase border-gray-600 leading-relaxed hover:text-yellow-400 hover:border-yellow-400" href="http://unn-w18015597.newnumyspace.co.uk/T/public/productview.php?prodID=4" data-ajax="false">view product</a>
+                            <a class=" text-white text-xl inline-block no-underline border-2 p-2 uppercase border-gray-600 leading-relaxed hover:text-yellow-400 hover:border-yellow-400" href="index.php?page=productview&prodID=4">view product</a>
                         </div>
                     </div>
                 </div>
@@ -48,7 +41,7 @@ if($queryResult === false) {
                     <div class="container mx-auto">
                       <div class="flex flex-col w-full lg:w-1/2 md:ml-16 items-center md:items-start px-6 tracking-wide">
                         <p class="text-white text-2xl font-bold my-4">Best Selling Laptop</p>
-                        <a class=" text-white text-xl inline-block no-underline border-2 p-2 uppercase border-gray-600 leading-relaxed hover:text-yellow-400 hover:border-yellow-400" href="#">view product</a>
+                        <a class=" text-white text-xl inline-block no-underline border-2 p-2 uppercase border-gray-600 leading-relaxed hover:text-yellow-400 hover:border-yellow-400" href="index.php?page=productview&prodID=1">view product</a>
                     </div>
                     </div>
   
@@ -64,7 +57,7 @@ if($queryResult === false) {
                     <div class="container mx-auto">
                       <div class="flex flex-col w-full lg:w-1/2 md:ml-16 items-center md:items-start px-6 tracking-wide">
                         <p class="text-white text-2xl font-bold my-4">Best Selling Accessory</p>
-                        <a class=" text-white text-xl inline-block no-underline border-2 p-2 uppercase border-gray-600 leading-relaxed hover:text-yellow-400 hover:border-yellow-400" data-ajax="false" href="http://unn-w18015597.newnumyspace.co.uk/T/public/productview.php?prodID=2">view product</a>
+                        <a class=" text-white text-xl inline-block no-underline border-2 p-2 uppercase border-gray-600 leading-relaxed hover:text-yellow-400 hover:border-yellow-400" href="index.php?page=productview&prodID=2">view product</a>
                     </div>
                     </div>
   
@@ -123,7 +116,7 @@ while($rowObj = $queryResult->fetchObject()) {
     echo "<div class=\"flex flex-col my-2 p-2 h-auto max-w-sm md:w-1/2 md:max-w-md lg:w-1/3 lg:max-w-lg  xl:max-w-xl  \">
         <div class=\"flex flex-col md:items-center max-w-full hover:border-gray-600 border-2 p-6 hover:bg-gray-700 \">
             <div class=\"h-auto overflow-hidden \">
-                <a href='productview.php?prodID={$rowObj->prodID}' data-ajax=\"false\"><img src=\"assets/ProductPics/$rowObj->prodImage\" alt=\"\"></a>
+                <a href='index.php?page=productview&prodID={$rowObj->prodID}'><img src=\"assets/ProductPics/$rowObj->prodImage\" alt=\"\"></a>
             </div>
         </div>
         <div class=\"flex pl-5 \">
@@ -190,7 +183,7 @@ while($rowObj = $queryResult->fetchObject()) {
     <!-- End Of Reviews -->
         <!-- Newsletter Subscription -->
         <section class="text-gray-700 body-font">
-    <form method="post" action="../src/controllers/registerNewsletter.php" data-ajax="false">
+    <form id="newsletterForm" method="post" action="../src/controllers/registerNewsletter.php" data-ajax="false">
     <div class=" px-3 py-2 mx-auto">
         <div class="flex flex-col text-center w-full mb-6">
             <h1 class="sm:text-3xl text-2xl font-medium title-font mb-2 text-gray-900">Our Newsletter</h1>
@@ -200,7 +193,9 @@ while($rowObj = $queryResult->fetchObject()) {
             <input class="to-validate flex-grow w-full bg-gray-100 rounded border border-gray-400 focus:outline-none focus:border-gray-500 text-base px-4 py-2 mr-4 mb-4 sm:mb-0" placeholder="Full Name" type="fn" name="fn">
             <input class="to-validate flex-grow w-full bg-gray-100 rounded border border-gray-400 focus:outline-none focus:border-gray-500 text-base px-4 py-2 mr-4 mb-4 sm:mb-0" placeholder="Email" type="email" name = "email">
             <button class="text-white bg-gray-800 border-0 py-2 px-10 focus:outline-none hover:bg-gray-600 rounded text-lg" type="submit">Subscribe</button>
-        </div>
+            
+          </div>
+          <p class="warning text-xs italic text-red-500 hidden">Please enter your details.</p>
     </div>
     </form>
 </section>
@@ -238,8 +233,16 @@ while($rowObj = $queryResult->fetchObject()) {
       </section>
       </div>
       <script>
+        //get rid of jquery wrappers
         $(document).ready(function(){
-          $('div.ui-radio').contents().unwrap();
-          $('div.ui-input-text').contents().unwrap();
+          $('div.ui-radio').each(function() {
+              $(this).contents().unwrap();
+          });
+          $('div.ui-input-text').each(function() {
+              $(this).contents().unwrap();
+          });
+          $('div.ui-checkbox').each(function() {
+              $(this).contents().unwrap();
+          });
         }); 
       </script>

@@ -2,6 +2,7 @@ $(document).ready(function() {
 
     $("#loginForm").on("submit", validate);
     $("#registerForm").on("submit", validate);
+    $("#newsletterForm").on("submit", validate);
 
 });
 
@@ -18,6 +19,12 @@ function validate(e) {
             $("p.warning").eq(i).addClass("hidden");
             $(".to-validate").eq(i).removeClass("border-red-500");
         }
-    }  
+    }
+    
+    if($("#password").val() != $("#c_password").val()) {
+        $("p#no-match").removeClass("hidden");
+    } else {
+        $("p#no-match").addClass("hidden");
+    }
 }
 
