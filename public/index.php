@@ -18,7 +18,7 @@ session_start();
 
         
             <?php
-                $page = isset($_REQUEST['page']) ? $_REQUEST['page'] : null;
+                $page = isset($_REQUEST['page']) ? $_REQUEST['page'] : 'index';
                 include '../src/views/'.$page.'.php';
                 
             ?>
