@@ -209,8 +209,8 @@ div.ui-mobile-viewport {
 	overflow-x: hidden;
 
 }
-/* Corner styling for dialogs and popups */
-/* .ui-corner-all > .ui-header:first-child,
+Corner styling for dialogs and popups 
+ .ui-corner-all > .ui-header:first-child,
 .ui-corner-all > .ui-content:first-child,
 .ui-corner-all > .ui-footer:first-child {
 	-webkit-border-top-left-radius: inherit;
@@ -225,7 +225,7 @@ div.ui-mobile-viewport {
 	border-bottom-left-radius: inherit;
 	-webkit-border-bottom-right-radius: inherit;
 	border-bottom-right-radius: inherit;
-} */
+}
 /* Buttons and icons */
 /* .ui-btn {
 	font-size: 16px;

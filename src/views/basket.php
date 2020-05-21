@@ -1,5 +1,6 @@
 
 <!-- Basket -->
+<script src="https://www.paypal.com/sdk/js?client-id=Ae85_FL5wvvK6S0rvYDyhqPotl3urBCMJTuX7GWpxyur0QaPtzXLef7Dc_a_i3MAUoI-pHWGHK7yHyCB&merchant-id=5BKGV2D7DTYXU&currency=GBP"></script> 
 <section class="flex flex-col md:flex-row">
         <table class="table-auto w-full text-center md:w-3/4">
             <thead class="text-sm mb-4">
@@ -17,10 +18,13 @@
 
               $dbConn = getConnection();
 
-              $items = count($_SESSION['basket']);
-
+              
+              $total = 0.00;
               //render items in the basket from the session data
               if(isset($_SESSION['basket'])){
+                
+                $items = count($_SESSION['basket']);
+  
               for($i=0; $i<$items; $i++) {
                 $prodID = $_SESSION['basket'][$i];
 
@@ -35,6 +39,7 @@
                 } 
 
                 while ($rowObj = $q1->fetchObject()) {
+                  $total += $rowObj->prodPrice;
                 echo <<<EOT
                 <tr id="prod{$prodID}" class="">
                   <td class="md:w-32"><img src="assets/ProductPics/{$rowObj->prodImage}" alt=""></td>
@@ -64,11 +69,44 @@ EOT;
                 <p>Total</p>
                 <p id="total"></p>
             </div>
-            <button class=" mx-2 bg-gray-800 hover:bg-gray-500 text-white font-semibold hover:text-white py-2 px-4 border border-gray-500 hover:border-transparent rounded">
-                <a href="payment.html">Checkout Securely</a>
-              </button>
-    </section>
-</div>
+            <div id="paypal-button-container"></div>
+    </section>  
+
+<!--Modal-->
+<div id="tSuccess" class="hidden modal pointer-events-none fixed w-full h-full top-0 left-0 flex items-center justify-center">
+    <div class="modal-overlay absolute w-full h-full bg-gray-900 opacity-75"></div>
+    
+    <div class="modal-container bg-white w-11/12 md:max-w-md mx-auto rounded shadow-lg z-50 overflow-y-auto">
+
+      <div class="modal-content py-4 text-left px-6 z-50">
+          
+          <!--Body-->
+          <svg class="m-auto svg-icon" fill="#2d3748" viewBox="0 0 20 20" width="200" height="200">
+             <path d="M9.917,0.875c-5.086,0-9.208,4.123-9.208,9.208c0,5.086,4.123,9.208,9.208,9.208s9.208-4.122,9.208-9.208
+								C19.125,4.998,15.003,0.875,9.917,0.875z M9.917,18.141c-4.451,0-8.058-3.607-8.058-8.058s3.607-8.057,8.058-8.057
+								c4.449,0,8.057,3.607,8.057,8.057S14.366,18.141,9.917,18.141z M13.851,6.794l-5.373,5.372L5.984,9.672
+								c-0.219-0.219-0.575-0.219-0.795,0c-0.219,0.22-0.219,0.575,0,0.794l2.823,2.823c0.02,0.028,0.031,0.059,0.055,0.083
+								c0.113,0.113,0.263,0.166,0.411,0.162c0.148,0.004,0.298-0.049,0.411-0.162c0.024-0.024,0.036-0.055,0.055-0.083l5.701-5.7
+                                c0.219-0.219,0.219-0.575,0-0.794C14.425,6.575,14.069,6.575,13.851,6.794z"></path>            
+        </svg>
+            
+        <!--Title-->
+            <div class="flex justify-between items-center pb-3">
+              <p class="text-gray-800 m-auto text-2xl font-bold">Transaction Successful!</p>
+            </div>
+
+        <!--Footer-->
+        <div class="flex justify-between items-center pb-3">
+              <p class="text-gray-800 m-auto text-2xl">You'll be redirected soon...</p>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+
+
+
+
 <script>
   $(document).ready(function(){
     $('div.ui-input-text').each(function() {
@@ -76,14 +114,37 @@ EOT;
       });
   });
 
-  $(document).on("pageshow", function(e){
-    e.preventDefault();
+  setInterval(function() {
       let total = 0;
       $(".price").each(function(){
         total += parseFloat($( this ).val());
       });
       $("#total").text("£" + total);
-  });
-
+  }, 1000);
+  
 </script>
+
+<script>
+  $(document).ready(function() {
+paypal.Buttons({
+    createOrder: function(data, actions) {
+      return actions.order.create({
+        purchase_units: [{
+          amount: {
+            value: <?php echo $total ?>,
+          }
+        }]
+      });
+    },
+    onApprove: function(data, actions) {
+      return actions.order.capture().then(function(details) {
+        document.getElementById("tSuccess").classList.remove("hidden");
+        document.getElementById("paypal-button-container").classList.add("hidden");
+        window.location.href = "../src/controllers/clearCart.php";
+      });
+    }
+  }).render('#paypal-button-container'); // Display payment options on your web page
+});
+</script>
+</div>
 
