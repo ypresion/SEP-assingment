@@ -125,7 +125,7 @@ EOT;
 </script>
 
 <script>
-  $(document).ready(function() {
+
 paypal.Buttons({
     createOrder: function(data, actions) {
       return actions.order.create({
@@ -144,7 +144,7 @@ paypal.Buttons({
       });
     }
   }).render('#paypal-button-container'); // Display payment options on your web page
-});
+
 </script>
 </div>
 

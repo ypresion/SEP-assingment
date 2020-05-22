@@ -4,7 +4,8 @@ session_start();
 
 list($input, $errors) = validate_logon();
 if ($errors) {
-    echo show_errors($errors);
+    //echo show_errors($errors);
+    header("Location: http://unn-w18015597.newnumyspace.co.uk/T/public/index.php?page=register&errors=true");
 }
 else {
 

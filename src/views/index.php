@@ -13,6 +13,18 @@ if($queryResult === false) {
     exit;
 }
 
+$errors = isset($_REQUEST['errors']) ? $_REQUEST['errors'] : null;
+if($errors == 'true') { 
+    sleep(1);
+    echo <<<EOT
+    <script>
+    $(document).ready(function(){
+    $('#phperror').removeClass("hidden");
+    setTimeout(function(){ $('#phperror').addClass("hidden"); }, 10000);
+    });
+    </script>
+EOT;
+}
 ?> 
 
 
@@ -196,6 +208,7 @@ while($rowObj = $queryResult->fetchObject()) {
             
           </div>
           <p class="warning text-xs italic text-red-500 hidden">Please enter your details.</p>
+          <p id="phperror" class="text-xs italic text-red-500 hidden">Email already in the database.</p>
     </div>
     </form>
 </section>
@@ -234,7 +247,7 @@ while($rowObj = $queryResult->fetchObject()) {
       </div>
       <script>
         //get rid of jquery wrappers
-        $(document).ready(function(){
+        $(document).on("pageshow", function(){
           $('div.ui-radio').each(function() {
               $(this).contents().unwrap();
           });

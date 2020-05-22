@@ -1,7 +1,7 @@
 <?php
 list($input, $errors) = validate_register_newsletter();
 if ($errors) {
-echo show_errors($errors);
+    header("Location: http://unn-w18015597.newnumyspace.co.uk/T/public/index.php?page=index&errors=true");
 }
 else {
 

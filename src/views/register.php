@@ -1,5 +1,18 @@
 <?php
 require_once("../src/controllers/functions.php");
+
+$errors = isset($_REQUEST['errors']) ? $_REQUEST['errors'] : null;
+if($errors == 'true') { 
+    sleep(1);
+    echo <<<EOT
+    <script>
+    $(document).ready(function(){
+    $('#phperror').removeClass("hidden");
+    setTimeout(function(){ $('#phperror').addClass("hidden"); }, 10000);
+    });
+    </script>
+EOT;
+}
 ?>
 
 <div class="container mx-auto">
@@ -53,6 +66,8 @@ require_once("../src/controllers/functions.php");
 									name="username"
 									type="text"
 									placeholder="Username"
+									min="6"
+									max="50"
 								/>
 								<p class="warning text-xs italic text-red-500 hidden">Please enter your username.</p>
 							</div>
@@ -67,9 +82,12 @@ require_once("../src/controllers/functions.php");
 										name="password"
 										type="password"
 										placeholder="******************"
+										min="8"
+										max="16"
 									/>
 									<p class="warning text-xs italic text-red-500 hidden">Please enter a password.</p>
 									<p id="no-match" class="text-xs italic text-red-500 hidden">Your passwords do not match.</p>
+									<p id="phperror" class="text-xs italic text-red-500 hidden">Username already exists</p>
 								</div>
 								<div class="md:ml-2">
 									<label class="block mb-2 text-sm font-bold text-gray-700" for="c_password">
