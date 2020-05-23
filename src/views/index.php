@@ -99,17 +99,17 @@ EOT;
       <div class="flex flex-col lg:flex-row  mt-2">
         <div class="w-full lg:w-1/3 h-auto p-2  md:text-xl ">
           <button class="w-full p-2 bg-gray-800 hover:bg-gray-900 text-white font-semibold hover:text-white  border border-gray-400 hover:border-transparent rounded">
-            <a href="#">SHOP ACCESSORIES</a>
+            <a href="index.php?page=product&cat=c4">SHOP MONITORS</a>
           </button>
         </div>
         <div class="w-full lg:w-1/3 h-auto p-2  md:text-xl ">
           <button class="w-full p-2 bg-gray-800 hover:bg-gray-900 text-white font-semibold hover:text-white  border border-gray-400 hover:border-transparent rounded">
-            <a href="#">SHOP GAMES</a>
+            <a href="index.php?page=product&cat=c3">SHOP HEADSETS</a>
           </button>
         </div>
         <div class="w-full lg:w-1/3 h-auto p-2  md:text-xl ">
           <button class="w-full p-2 bg-gray-800 hover:bg-gray-9I00 text-white font-semibold hover:text-white  border border-gray-400 hover:border-transparent rounded">
-            <a href="#">SHOP CONTROLLERS</a>
+            <a href="index.php?page=product&cat=c6">SHOP CONTROLLERS</a>
           </button>
         </div>
 

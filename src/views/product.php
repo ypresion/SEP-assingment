@@ -3,11 +3,22 @@ require_once("../src/controllers/functions.php");
 
 $dbConn = getConnection();
 
-$sql =  "select * FROM a_product
-       INNER JOIN a_prodCat
-      ON a_prodCat.catID = a_product.catID
-       ORDER BY prodName 
-     ";
+//Check if category required, if not query all products
+$cat = isset($_REQUEST['cat']) ? $_REQUEST['cat'] : null;
+
+if(!isset($cat)) {
+	$sql =  "select * FROM a_product
+		INNER JOIN a_prodCat
+		ON a_prodCat.catID = a_product.catID
+		ORDER BY prodName 
+		";
+} else {
+	$sql =  "select * FROM a_product
+		INNER JOIN a_prodCat
+		ON a_prodCat.catID = a_product.catID
+		WHERE a_product.catID = '$cat' 
+		";
+}
 
 $queryResult = $dbConn->query($sql);
 

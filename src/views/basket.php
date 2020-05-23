@@ -41,7 +41,7 @@
                 while ($rowObj = $q1->fetchObject()) {
                   $total += $rowObj->prodPrice;
                 echo <<<EOT
-                <tr id="prod{$prodID}" class="">
+                <tr id="prod{$prodID}" class="item">
                   <td class="md:w-32"><img src="assets/ProductPics/{$rowObj->prodImage}" alt=""></td>
                   <td class="">{$rowObj->prodName}</td>
                   <td class=""><input class="qty w-8" type="number" min="1" max="10" value="1" required></td>
@@ -60,11 +60,10 @@ EOT;
           </table>
 
           <div class="flex flex-col w-full  md:w-1/4 mt-2">
-            <span class="px-2 mb-2">Order Summary</span>
-            <div class="flex flex-row justify-between px-2 mb-4">
-                <p>1 Item</p>
-                <p>£89.99</p>
-            </div>
+            <span class="px-2 mb-2 italic">Order Summary</span>
+            <div id="item-list">
+
+          </div>
             <div class="flex flex-row justify-between px-2 mb-2">
                 <p>Total</p>
                 <p id="total"></p>
@@ -112,26 +111,47 @@ EOT;
     $('div.ui-input-text').each(function() {
               $(this).contents().unwrap();
       });
+
+  // Append div for each unit to order summary
+  for(let i=0; i<$(".item").length; i++) {
+    let num = parseInt(i+1);
+    $("#item-list").append('<div class="text-gray-800 flex flex-row justify-between px-2 mb-4"><p>Item '+ num +'</p><p class="item-price"></p></div>');    
+  }
+
+  calculatePrice();
+  $(".qty").change(calculatePrice);
   });
 
-  setInterval(function() {
-      let total = 0;
-      $(".price").each(function(){
-        total += parseFloat($( this ).val());
+  //Calculate total price for every item in basket and sum it up
+  function calculatePrice() {
+    let total = 0;
+    for(let i=0; i<$(".item").length; i++){
+      let price = $(".item").eq(i).find("input.price").val();
+      let qty = $(".item").eq(i).find("input.qty").val();
+      total += price*qty;
+      $(".item-price").eq(i).text("£" + price*qty);
+    }
+    $("#total").text("£" + total);
+  }
+
+  //Calculate total 
+  function calculateTotal() {
+    let total = 0;
+      $(".item-price").each(function(){
+        total += parseFloat($( this ).text().substr(1));
       });
       $("#total").text("£" + total);
-  }, 1000);
-  
+  }
+
 </script>
 
 <script>
-
 paypal.Buttons({
     createOrder: function(data, actions) {
       return actions.order.create({
         purchase_units: [{
           amount: {
-            value: <?php echo $total ?>,
+            value: $("#total").text().substr(1),
           }
         }]
       });
