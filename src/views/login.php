@@ -1,4 +1,5 @@
 <?php
+
 require_once("../src/controllers/functions.php");
 
 //Handle errors returned by the loginProcess.php

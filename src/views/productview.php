@@ -1,4 +1,6 @@
 <?php
+
+
 require_once("../src/controllers/functions.php");
 
 //Get the product data from the database

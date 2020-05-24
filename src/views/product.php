@@ -1,4 +1,6 @@
 <?php
+
+
 require_once("../src/controllers/functions.php");
 
 $dbConn = getConnection();

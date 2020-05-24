@@ -1,4 +1,5 @@
 <?php
+
 require_once("../src/controllers/functions.php");
 $dbConn = getConnection();
 $sql =  "select * FROM a_product  
