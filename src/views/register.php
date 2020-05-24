@@ -1,6 +1,7 @@
 <?php
 require_once("../src/controllers/functions.php");
 
+//Handle php errors returned by registerProcess.php
 $errors = isset($_REQUEST['errors']) ? $_REQUEST['errors'] : null;
 if($errors == 'true') { 
     sleep(1);

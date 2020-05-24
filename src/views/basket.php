@@ -1,6 +1,6 @@
 
 <!-- Basket -->
-<script src="https://www.paypal.com/sdk/js?client-id=Ae85_FL5wvvK6S0rvYDyhqPotl3urBCMJTuX7GWpxyur0QaPtzXLef7Dc_a_i3MAUoI-pHWGHK7yHyCB&merchant-id=5BKGV2D7DTYXU&currency=GBP"></script> 
+
 <section class="flex flex-col md:flex-row">
         <table class="table-auto w-full text-center md:w-3/4">
             <thead class="text-sm mb-4">
@@ -19,7 +19,6 @@
               $dbConn = getConnection();
 
               
-              $total = 0.00;
               //render items in the basket from the session data
               if(isset($_SESSION['basket'])){
                 
@@ -39,7 +38,6 @@
                 } 
 
                 while ($rowObj = $q1->fetchObject()) {
-                  $total += $rowObj->prodPrice;
                 echo <<<EOT
                 <tr id="prod{$prodID}" class="item">
                   <td class="md:w-32"><img src="assets/ProductPics/{$rowObj->prodImage}" alt=""></td>
@@ -102,69 +100,6 @@ EOT;
       </div>
     </div>
   </div>
-
-
-
-
-<script>
-  $(document).ready(function(){
-    $('div.ui-input-text').each(function() {
-              $(this).contents().unwrap();
-      });
-
-  // Append div for each unit to order summary
-  for(let i=0; i<$(".item").length; i++) {
-    let num = parseInt(i+1);
-    $("#item-list").append('<div class="text-gray-800 flex flex-row justify-between px-2 mb-4"><p>Item '+ num +'</p><p class="item-price"></p></div>');    
-  }
-
-  calculatePrice();
-  $(".qty").change(calculatePrice);
-  });
-
-  //Calculate total price for every item in basket and sum it up
-  function calculatePrice() {
-    let total = 0;
-    for(let i=0; i<$(".item").length; i++){
-      let price = $(".item").eq(i).find("input.price").val();
-      let qty = $(".item").eq(i).find("input.qty").val();
-      total += price*qty;
-      $(".item-price").eq(i).text("£" + price*qty);
-    }
-    $("#total").text("£" + total);
-  }
-
-  //Calculate total 
-  function calculateTotal() {
-    let total = 0;
-      $(".item-price").each(function(){
-        total += parseFloat($( this ).text().substr(1));
-      });
-      $("#total").text("£" + total);
-  }
-
-</script>
-
-<script>
-paypal.Buttons({
-    createOrder: function(data, actions) {
-      return actions.order.create({
-        purchase_units: [{
-          amount: {
-            value: $("#total").text().substr(1),
-          }
-        }]
-      });
-    },
-    onApprove: function(data, actions) {
-      return actions.order.capture().then(function(details) {
-        document.getElementById("tSuccess").classList.remove("hidden");
-        document.getElementById("paypal-button-container").classList.add("hidden");
-        window.location.href = "../src/controllers/clearCart.php";
-      });
-    }
-  }).render('#paypal-button-container'); // Display payment options on your web page
-
-</script>
+  <script src="scripts/basket.js"></script>
 </div>
 

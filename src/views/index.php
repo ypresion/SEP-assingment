@@ -1,5 +1,4 @@
 <?php
-
 require_once("../src/controllers/functions.php");
 $dbConn = getConnection();
 $sql =  "select * FROM a_product  
@@ -13,6 +12,7 @@ if($queryResult === false) {
     exit;
 }
 
+//Handle newsletter subscription errors
 $errors = isset($_REQUEST['errors']) ? $_REQUEST['errors'] : null;
 if($errors == 'true') { 
     sleep(1);
@@ -245,17 +245,4 @@ while($rowObj = $queryResult->fetchObject()) {
         </div>
       </section>
       </div>
-      <script>
-        //get rid of jquery wrappers
-        $(document).on("pageshow", function(){
-          $('div.ui-radio').each(function() {
-              $(this).contents().unwrap();
-          });
-          $('div.ui-input-text').each(function() {
-              $(this).contents().unwrap();
-          });
-          $('div.ui-checkbox').each(function() {
-              $(this).contents().unwrap();
-          });
-        }); 
-      </script>
+      <script src="scripts/index.js"></script>

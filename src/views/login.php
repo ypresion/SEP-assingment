@@ -1,6 +1,7 @@
 <?php
 require_once("../src/controllers/functions.php");
 
+//Handle errors returned by the loginProcess.php
 $errors = isset($_REQUEST['errors']) ? $_REQUEST['errors'] : null;
 if($errors == 'true') { 
     sleep(1);
@@ -90,18 +91,5 @@ EOT;
 				</div>
 			</div>
 		</div>
-		<script>
-        //get rid of jquery wrappers
-        $(document).ready(function(){
-          $('div.ui-radio').each(function() {
-              $(this).contents().unwrap();
-          });
-          $('div.ui-input-text').each(function() {
-              $(this).contents().unwrap();
-          });
-          $('div.ui-checkbox').each(function() {
-              $(this).contents().unwrap();
-          });
-        }); 
-      </script>
+		<script src="scripts/index.js"></script>
 
