@@ -2,8 +2,8 @@
 <?php
 function getConnection() {
     try {
-        $connection = new PDO("mysql:host=localhost;dbname=unn_w18011022",
-            "unn_w18011022", "OUNEQTFE");
+        $connection = new PDO("mysql:host=localhost;dbname=",
+            "", "");
         $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         return $connection;
     } catch (Exception $e) {
